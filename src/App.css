@@ -1,5 +1,6 @@
 .App {
    text-align: center;
    min-height: 100vh;
-   background-image: url "public/assets/images/BackgroundRandM.jpg" 
+   background-color: red;
+   background-image: url('../public/assets/images/BackgroundRandM.jpg') ;
 }
