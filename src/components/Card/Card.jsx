@@ -1,10 +1,13 @@
 import style from "./Card.module.css"
 export default function Card(props) {
+  const closeCardHandler = (event) => {
+    props.onClose(event.target.value)
+  }
 
   return (
     <div key={props.id} className={style.cardBody}>
-      <button value={props.id} className={style.CloseButton} onClick={props.onClose}>
-        X
+      <button value={props.id} className={style.CloseButton} onClick={closeCardHandler}>
+        X 
       </button>
       <img className={style.ProfileImage} src={props.image} alt="" />
       <h2 className={style.name}>
