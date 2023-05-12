@@ -1,8 +1,5 @@
 import style from "./Card.module.css"
 export default function Card(props) {
-  {
-    console.log(JSON.stringify(props.origin))
-  }
 
   return (
     <div className={style.cardBody}>
