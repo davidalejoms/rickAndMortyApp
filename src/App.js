@@ -43,9 +43,7 @@ function App() {
       })
   }
   const onClose = (id) => {
-    console.log("antes de cerrar:", characters)
     setCharacters(characters.filter((cartoon) => cartoon.id !== parseInt(id)))
-    setTimeout(console.log("despues de cerrar:", characters), 300)
   }
   const Random = () => {
      onSearch(Math.floor(Math.random() * 826) + 1)
