@@ -7,7 +7,7 @@ export default function Card(props) {
   return (
     <div key={props.id} className={style.cardBody}>
       <button value={props.id} className={style.CloseButton} onClick={closeCardHandler}>
-        X 
+        X
       </button>
       <img className={style.ProfileImage} src={props.image} alt="" />
       <h2 className={style.name}>

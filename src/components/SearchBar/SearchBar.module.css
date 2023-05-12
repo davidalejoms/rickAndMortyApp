@@ -1,17 +1,14 @@
 .input {
-    margin-top: 15px;
+    /* margin-top: 15px; */
   padding: 10px 15px;
   min-width: 55%;
   font-size: 1.5rem;
   line-height: 1.5em;
   color: #373d41;
   background-color: #fff;
-  background-clip: padding-box;
   border: 1px solid #c5c5c7;
   border-radius: 6px;
-  -webkit-box-shadow: none;
   box-shadow: none;
-  flex-grow: 1;
   border-right: none;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -21,12 +18,9 @@
   color: #ffffff;
   font-weight: 700;
   text-decoration: none;
-  white-space: normal;
-  -webkit-transition: none;
-  transition: none;
   cursor: pointer;
   outline: 0;
-  padding: 14px 24px 13px;
+  padding: 14px 24px;
   font-size: 1.5rem;
   line-height: rem;
   border-radius: 6px;
