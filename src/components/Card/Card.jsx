@@ -2,8 +2,8 @@ import style from "./Card.module.css"
 export default function Card(props) {
 
   return (
-    <div className={style.cardBody}>
-      <button className={style.CloseButton} onClick={props.onClose}>
+    <div key={props.id} className={style.cardBody}>
+      <button value={props.id} className={style.CloseButton} onClick={props.onClose}>
         X
       </button>
       <img className={style.ProfileImage} src={props.image} alt="" />

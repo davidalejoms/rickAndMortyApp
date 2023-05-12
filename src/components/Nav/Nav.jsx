@@ -7,7 +7,7 @@ export default function Nav(props) {
     <div className={style.navigation}>
       <h1>Rick And Morty</h1>
       <h5>By David Mejia</h5>
-      <SearchBar onSearch={props.addNew} />
+      <SearchBar onSearch={props.addWithId} />
     </div>
   )
 }
