@@ -4,7 +4,8 @@ import style from "./Cards.module.css"
 
 export default function Cards(props) {
   return (
-    <div className={style.CardsContainer}>
+    // <div  className={style.CardsContainer}>
+    <div  className="m-2 p-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 ">
       
       {props.characters.map((character) => {
         return (

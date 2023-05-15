@@ -5,11 +5,11 @@ function AddRandom(props) {
     props.AddRandom()
   }
   return (
-    <div>
-      <button onClick={randomHandler} className={styles.randomButton}>
-        Aleatorio
-      </button>
-    </div>
+
+    <div  onClick={randomHandler} className="text-left" id="randomWrapper">
+        <button className="bg-green-700 text-white px-6 py-2 inline-block rounded-full">Random</button>
+      </div>
+    
   )
 }
 

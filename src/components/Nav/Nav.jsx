@@ -1,14 +1,20 @@
 import React from "react"
 import style from "./Nav.module.css"
 import SearchBar from "../SearchBar/SearchBar"
-import AddRandom from '../AddRandom/AddRandom'
+
 export default function Nav(props) {
   return (
-    <div className={style.navigation}>
-      <h1>Rick And Morty</h1>
-      <h5>By David Mejia</h5>
-      <SearchBar onSearch={props.addWithId} />
-      <AddRandom AddRandom={props.AddRandom}/>
+    <div className=" w-full  bg-gray-200">
+      <div className=" max-w-6xl mx-auto lg:grid lg:grid-cols-2 items-center" id="navBar">
+        <div className="  mx-auto  " id="headerWrapper">
+          <div className="text-center lg:grid  lg:grid-cols-2 mr-2 " id="titleWrapper">
+            <h1 classNameName="   Text-blue-900 text-3xl text-green-800">Rick And Morty App</h1>
+            <span className="  text-2xl">By David Mejia</span>
+          </div>
+        </div>
+
+        <SearchBar onSearch={props.addWithId} AddRandom={props.AddRandom} />
+      </div>
     </div>
   )
 }

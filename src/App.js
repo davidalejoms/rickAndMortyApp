@@ -2,6 +2,7 @@ import React from "react"
 import axios from "axios"
 import "./App.css"
 // import Card from "./components/Card/Card.jsx"
+import Wither from "./components/Wither/Wither"
 import Nav from "./components/Nav/Nav"
 import Cards from "./components/Cards/Cards.jsx"
 import AlertBar from "./components/AlertBar/Alertbar"
@@ -46,10 +47,11 @@ function App() {
     setCharacters(characters.filter((cartoon) => cartoon.id !== parseInt(id)))
   }
   const Random = () => {
-     onSearch(Math.floor(Math.random() * 826) + 1)
+    onSearch(Math.floor(Math.random() * 826) + 1)
   }
   return (
     <div className="App">
+      {/* <Wither /> */}
       <Nav addWithId={onSearch} AddRandom={Random} />
       <AlertBar warning={warning} />
 
