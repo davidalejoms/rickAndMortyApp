@@ -1,12 +1,14 @@
-import React from "react"
+import React, { useEffect } from "react"
 import axios from "axios"
 import "./App.css"
-// import Card from "./components/Card/Card.jsx"
 import Wither from "./components/Wither/Wither"
 import Nav from "./components/Nav/Nav"
 import Cards from "./components/Cards/Cards.jsx"
 import AlertBar from "./components/AlertBar/Alertbar"
-// import characters, { Rick } from "./data.js"
+import About from "./components/About/About"
+import { Route, Routes } from "react-router-dom"
+import Detail from "./components/Detail/Detail"
+import NotFound from "./components/NotFound/NotFound"
 
 function App() {
   const [characters, setCharacters] = React.useState([])
@@ -49,13 +51,34 @@ function App() {
   const Random = () => {
     onSearch(Math.floor(Math.random() * 826) + 1)
   }
+  /* 
+meter 6 para ir mirando inicio
+*/
+  const preload = (q) => {
+    if (characters.length < q) {
+      // setTimeout(Random(),3800)
+      Random()
+    }
+  }
+  useEffect(() => {
+    preload(10)
+  }, [characters])
+
+  /*
+    meter 6 para ir mirando fin
+    */
+
   return (
     <div className="App">
       {/* <Wither /> */}
       <Nav addWithId={onSearch} AddRandom={Random} />
       <AlertBar warning={warning} />
-
-      <Cards onClose={onClose} characters={characters} />
+      <Routes>
+        <Route path="/home" element={<Cards onClose={onClose} characters={characters} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   )
 }

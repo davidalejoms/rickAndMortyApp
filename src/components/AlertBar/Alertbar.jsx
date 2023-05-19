@@ -9,6 +9,8 @@ export default function AlertBar(props) {
   } else {
     state = styles.AlertBar
   }
+
+  
   return (
     <div className={state}>
       <div className={styles.AlertContent}>Advertencia: {props.warning}</div>
