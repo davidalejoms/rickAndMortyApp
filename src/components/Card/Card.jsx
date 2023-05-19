@@ -21,7 +21,7 @@ export default function Card(props) {
   },[props.status])
     
   return (
-    <div key={props.id} className=" bg-gray-300 m-2 rounded-3xl grid grid-cols-2 opacity-95 max-w-md min-w-[40rem]" id="Card">
+    <div key={props.id} className=" bg-gray-300 m-2 rounded-3xl grid grid-cols-2 opacity-95 max-w-full " id="Card">
       <div className="flex items-end justify-items-end" id="containerImage">
         <img className="min-h-full rounded-l-3xl p-3 object-cover object-center  " src={props.image} alt="" />
       
@@ -52,9 +52,9 @@ export default function Card(props) {
           Gender:
           <strong className=" text-stone-900 ml-2">{props.gender} </strong>
         </h2>
-        <h2 className="text-stone-700 text-xl text-left my-3leading-none ">
+        <h2 className="text-stone-700 text-xl text-left my-3 leading-none ml-2 max-w-[20ch] ">
           Origin:
-          <strong className=" text-stone-900 ml-2">{props.origin}</strong>
+          <strong className=" text-stone-900 ">{props.origin}</strong>
         </h2>
       </div>
     </div>
