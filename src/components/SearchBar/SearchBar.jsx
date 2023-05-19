@@ -26,7 +26,7 @@ export default function SearchBar(props) {
       <div className="text-right mr-10" id="searchWrapper">
         <input
         id="searchMaster"
-        className=" text-green-700 py-2 px-4  rounded-full"
+        className=" text-green-700 py-2 px-4 w-36 sm:w-80 rounded-full"
           onChange={(event) => setValueScan(event.target.value)}
           onKeyDown={handleKeyDown}
           type="search"
@@ -38,18 +38,6 @@ export default function SearchBar(props) {
       
     </div>
 
-    /*  
-    <div>
-      <input
-        id="searchMaster"
-        onChange={(event) => setValueScan(event.target.value)}
-        onKeyDown={handleKeyDown}
-        className={styles.input}
-        type="search"
-      />
-      <button className={styles.button} onClick={handleSearchButton}>
-        Agregar
-      </button>
-    </div> */
+
   )
 }

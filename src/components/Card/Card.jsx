@@ -21,7 +21,7 @@ export default function Card(props) {
   },[props.status])
     
   return (
-    <div key={props.id} className=" bg-gray-300 m-2 rounded-3xl grid grid-cols-2 opacity-95 " id="Card">
+    <div key={props.id} className=" bg-gray-300 m-2 rounded-3xl grid grid-cols-2 opacity-95 max-w-md min-w-[40rem]" id="Card">
       <div className="flex items-end justify-items-end" id="containerImage">
         <img className="min-h-full rounded-l-3xl p-3 object-cover object-center  " src={props.image} alt="" />
       

@@ -2,6 +2,9 @@ import React from "react"
 export default function NotFound() {
   return (
     <>
+
+
+
       <div className="grid h-screen place-items-center text-white text-  bg-green-700">
         
         <div className="">
