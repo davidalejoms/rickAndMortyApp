@@ -6,9 +6,10 @@ import Nav from "./components/Nav/Nav"
 import Cards from "./components/Cards/Cards.jsx"
 import AlertBar from "./components/AlertBar/Alertbar"
 import About from "./components/About/About"
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useLocation } from "react-router-dom"
 import Detail from "./components/Detail/Detail"
 import NotFound from "./components/NotFound/NotFound"
+import Login from "./components/Login/Login"
 
 function App() {
   const [characters, setCharacters] = React.useState([])
@@ -63,17 +64,19 @@ meter 6 para ir mirando inicio
   useEffect(() => {
     preload(10)
   }, [characters])
-
   /*
     meter 6 para ir mirando fin
     */
 
+    const location = useLocation()
+
   return (
     <div className="App">
       {/* <Wither /> */}
-      <Nav addWithId={onSearch} AddRandom={Random} />
+      <Nav addWithId={onSearch} AddRandom={Random} location={location.pathname} />
       <AlertBar warning={warning} />
       <Routes>
+        <Route path="/" element={<Login />} />
         <Route path="/home" element={<Cards onClose={onClose} characters={characters} />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />

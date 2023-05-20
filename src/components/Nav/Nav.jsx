@@ -1,9 +1,11 @@
 import React from "react"
 import style from "./Nav.module.css"
 import SearchBar from "../SearchBar/SearchBar"
-import { Link } from "react-router-dom"
+import { Link,useLocation } from "react-router-dom"
 
 export default function Nav(props) {
+  if(props.location==="/") return <></>
+
   return (
     <div className=" w-full  bg-gray-200">
       <div className=" max-w-6xl mx-auto lg:grid lg:grid-cols-2 items-center" id="navBar">
