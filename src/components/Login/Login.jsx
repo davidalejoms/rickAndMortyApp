@@ -35,8 +35,8 @@ export default function Contact() {
   
   
   return (
-    <div className="m-25 mt-20 max-w-xl mx-auto bg-green-700 border-4 border-green-300  rounded-xl">
-      <img className="mt-4" src={logo} />
+    <div className="m-25 mt-20 max-w-sm mx-auto bg-green-700 border-4 border-green-300  rounded-xl">
+      <img className="mt-4 w-[60%] mx-auto" src={logo} />
       <form className=" p-4 flex flex-col mt-10 border-4 border-green-300 rounded-xl " onSubmit={handleSubmit}>
         <div className="flex flex-col  justify-center mt-4  relative">
           <label className="text-[1.25rem] text-slate-50" htmlFor="password">
@@ -50,7 +50,7 @@ export default function Contact() {
             {errors.password}
           </p>
           <input
-            className=" px-3 py-1 w-[22rem] rounded-full mx-auto  text-gray-900 text-[1.25rem]  "
+            className=" px-3 py-1 w-[90%] rounded-full mx-auto  text-gray-900 text-[1.25rem]  "
             name="password"
             type="pasword"
             value={userData.password}
@@ -70,7 +70,7 @@ export default function Contact() {
             {errors.user}
           </p>
           <input
-            className=" px-3 py-1 w-[22rem] rounded-full mx-auto  text-gray-900 text-[1.25rem]  "
+            className=" px-3 py-1 w-[90%] rounded-full mx-auto  text-gray-900 text-[1.25rem]  "
             name="user"
             type="password"
             value={userData.user}
