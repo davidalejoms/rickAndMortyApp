@@ -44,7 +44,7 @@ export default function Contact() {
           </label>
           <p
             className={
-              errors.password && "text-sm block text-center text-red-900 w-1/2 mx-auto absolute top-16 right-20  bg-orange-300 rounded-lg "
+              errors.password && "text-sm block text-center text-red-900 w-[90%] mx-auto absolute top-16 -right-1  bg-orange-300 rounded-lg "
             }
           >
             {errors.password}
@@ -64,7 +64,7 @@ export default function Contact() {
           </label>
           <p
             className={
-              errors.user && " text-sm block text-center text-red-900 w-1/2 mx-auto absolute top-16 right-20  bg-orange-300 rounded-lg "
+              errors.user && " text-sm block text-center text-red-900 w-[100%] mx-auto absolute top-16 right-1  bg-orange-300 rounded-lg "
             }
           >
             {errors.user}
