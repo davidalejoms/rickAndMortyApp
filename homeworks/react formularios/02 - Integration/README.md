@@ -138,10 +138,10 @@ useEffect(() => {
 ### **👩‍💻 EJERCICIO 6 | Login**
 
 ¡Ahora le daremos la funcionalidad de cambiar los permisos a nuestro login!
-
 1. Dirígete al archivo **`App.js`** y pásale la función **login** que creaste en el ejercicio anterior al componente **`Form`** mediante props.
 
 2. En el componente **`Form`** crea una función "**handleSubmit**". Esta función recibe un evento por parámetro. Deberás ejecutas la función **`e.preventDefault()`**. Luego ejecuta la función "**login**" recibida por props. ¡No te olvides de pasarle por parámetro tu estado local _`userData`_!
+<!--! aqui voy -->
 
 3. La función **handleSubmit** debe ejecutarse cuando se hace click en el botón **submit**.
 

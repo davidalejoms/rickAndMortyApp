@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.App {
+    text-align: center;
+    min-height: 100vh;
+ 
+    /* filter: blur(8px); */
+    background-image: url('../public/assets/images/rick-morty-bg-2.webp') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-origin: initial;
+}
+#cardsWrapper{
+    display: grid;
+    width: 100%;
+    gap: .4rem;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+}
+/* div{
+    border:1px solid red;
+} */
+
+
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; }
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
