@@ -23,7 +23,6 @@ export default function Login(props) {
     setErrors(validate({ ...userData, [name]: value }))
   }
 
-
   const handleSubmit = (evento) => {
     evento.preventDefault()
     // console.info('en handle submit',errors)
@@ -37,16 +36,14 @@ export default function Login(props) {
   }
 
   return (
-    <div className="pt-24">
-      <div
-        className="  max-w-sm mx-auto bg-gray-900 bg-opacity-70
-    rounded-xl"
-      >
+    <div className="pt-6">
+      <div  className="  max-w-sm mx-auto bg-gray-900 bg-opacity-70
+    rounded-xl">
         <img className=" w-[80%] mx-auto py-4" src={logo} />
         <form className=" p-4 flex flex-col mt-10  border-t-[4px] border-gray-950  rounded-xl text-left " onSubmit={handleSubmit}>
           <div className="flex flex-col  justify-center mt-4  relative">
             <label className=" text-slate-50 mb-1.5" htmlFor="password">
-              Email: (  davidalejoms@gmail.com  )
+              Email: ( davidalejoms@gmail.com )
             </label>
             <p
               className={
@@ -66,7 +63,7 @@ export default function Login(props) {
 
           <div className="flex flex-col  justify-center mt-4 relative">
             <label className="  text-slate-50 mb-1.5" htmlFor="Nombre">
-              Contraseña:(  PASShenry2  )
+              Contraseña:( PASShenry2 )
             </label>
             <p
               className={

@@ -35,8 +35,8 @@ export default function SearchBar(props) {
           onClick={() => handleSearchButton()}
           className="   text-slate-50 absolute  top-0 right-0 mt-0.1  "
           id="searchTrigger">
-          <i class="fa-solid fa-plus fa-circle text-slate-50 p-1 text-[2rem] bg-gray-300 hover:bg-gray-900 hover:text-white  rounded-full"></i>
-          <i class=""></i>
+          <i className="fa-solid fa-plus fa-circle text-slate-50 p-1 text-[2rem] bg-gray-300 hover:bg-gray-900 hover:text-white  rounded-full"></i>
+          <i className=""></i>
         </button>
       </div>
 

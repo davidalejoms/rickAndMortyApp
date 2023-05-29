@@ -7,7 +7,7 @@ function LogOut(props) {
   return (
 
     <div  onClick={props.logout} className="text-left" id="loginWrapper">
-        <button ><i class="fa-solid fa-right-from-bracket mr-2"></i>Salir</button>
+        <button ><i className="fa-solid fa-right-from-bracket mr-2"></i>Salir</button>
       </div>
     
   )

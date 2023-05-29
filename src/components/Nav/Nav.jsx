@@ -10,7 +10,7 @@ export default function Nav(props) {
   return (
     <div
       className={
-        props.location === "/" ? "hidden" : " w-full  bg-gray-900 bg-opacity-50 shadow-lg shadow-green-300 fixed top-0 left-0 z-10"
+        props.location === "/" ? "hidden" : " w-full  bg-gray-900 bg-opacity-90 shadow-lg shadow-green-300 fixed top-0 left-0 z-10"
       }
     >
       <div className={"text-center flex justify-center gap-10 items-center  py-3"} id="titleWrapper">

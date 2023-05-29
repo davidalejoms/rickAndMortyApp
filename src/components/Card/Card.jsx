@@ -2,7 +2,8 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { /* connect, */ useDispatch, useSelector } from "react-redux"
 import { addFav, removeFav } from "../../redux/actions"
-const Card = (props) => {
+// ==============================================================
+export default function Card (props)  {
   const dispatch = useDispatch()
   const myFavorites = useSelector((state) => state.myFavorites)
   const closeCardHandler = (event) => {
@@ -96,21 +97,3 @@ const Card = (props) => {
     </div>
   )
 }
-
-// export const mapStateToProps = (state) => {
-//   return {
-//     todo: state.myfavorites,
-//   }
-// }
-// export const MapDispatchToProps = (dispatch) => {
-//   return {
-//     addFav: (char) => {
-//       dispatch(addFav(char))
-//     },
-//     removeFav: (id) => {
-//       dispatch(removeFav(id))
-//     },
-//   }
-// }
-// export default connect(mapStateToProps, MapDispatchToProps)(Card)
-export default Card
