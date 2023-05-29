@@ -79,10 +79,7 @@ meter 6 para ir mirando inicio
   }, [access])
 
   function login(userData) {
-     console.info(userData)
-    
-    userData.password= document.getElementsByName('password')
-    userData.user= document.getElementsByName('user')
+
 
     if (userData.password === PASSWORD && userData.user === EMAIL) {
       setAccess(true)
