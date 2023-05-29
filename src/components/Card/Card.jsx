@@ -52,7 +52,7 @@ const Card = (props) => {
 
         <div className={icon}></div>
       </div>
-      <div className="relative p-4" id="DescriptionContainer">
+      <div className="relative p-4 pl-0" id="DescriptionContainer">
        {isFav ? (
           <button
             className="z-100 absolute top-2 right-20 text-red-500 fa-solid fa-heart text-3xl px-3 rounded-full bg-gray-300"
@@ -87,8 +87,9 @@ const Card = (props) => {
           Gender:
           <strong className="  ml-2">{props.gender} </strong>
         </h2>
-        <h2 className="  text-left my-3 leading-none  max-w-[20ch] ">
+        <h2 className="  text-left my-3 leading-none  max-w-[10ch] ">
           Origin:
+          
           <strong className="  ml-2  leading-6">{props.origin}</strong>
         </h2>
       </div>

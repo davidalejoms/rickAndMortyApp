@@ -10,13 +10,14 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-origin: initial;
+    background-origin: 0,0;
 }
 #cardsWrapper{
     display: grid;
     width: 100%;
     gap: .4rem;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-auto-flow: dense;
 }
 /* div{
     border:1px solid red;

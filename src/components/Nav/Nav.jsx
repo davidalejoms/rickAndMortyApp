@@ -1,16 +1,19 @@
-import React from "react"
+import React, { useEffect } from "react"
 import style from "./Nav.module.css"
 import SearchBar from "../SearchBar/SearchBar"
 import { Link, useLocation } from "react-router-dom"
 import AddRandom from "../AddRandom/AddRandom"
 import LogOut from "../LogOut/LogOut"
+import Clear from "../Clear/Clear"
 
 export default function Nav(props) {
-
-
   return (
-    <div className={ props.location === '/'  ? "hidden"  : " w-full  bg-gray-900  shadow-lg shadow-green-300 fixed top-0 left-0 z-10" }>
-      <div className="text-center flex justify-center gap-10 items-center  py-3" id="titleWrapper">
+    <div
+      className={
+        props.location === "/" ? "hidden" : " w-full  bg-gray-900 bg-opacity-50 shadow-lg shadow-green-300 fixed top-0 left-0 z-10"
+      }
+    >
+      <div className={"text-center flex justify-center gap-10 items-center  py-3"} id="titleWrapper">
         <span className="  text-gray-300 text-2xl">By David Mejia</span>
         <h1 className="    text-3xl text-white">Rick And Morty App</h1>
       </div>
@@ -20,19 +23,19 @@ export default function Nav(props) {
           <i className="fa-solid fa-home mr-1"></i> Home
         </Link>
         <Link to="/About" element="About">
-        <i className="fa-solid fa-user mr-1"></i>
+          <i className="fa-solid fa-user mr-1"></i>
           About
         </Link>
-        <AddRandom AddRandom={props.AddRandom} label="Random" />
         <Link to="/favorites" element="Favorites">
-        <i className="fa-solid fa-star mr-1"></i>
+          <i className="fa-solid fa-star mr-1"></i>
           My favs
         </Link>
-        <AddRandom AddRandom={props.AddRandom} preload={props.preload} label="+10 Randomly"/>
+        <AddRandom AddRandom={props.AddRandom} label="Random" />
+        <AddRandom AddRandom={props.AddRandom} preload={props.preload} label="+12 Randomly" />
+        <Clear clear={props.clear} label="Clear All" />
         <SearchBar onSearch={props.addWithId} AddRandom={props.AddRandom} logout={props.logout} />
-        <br className=" hidden sm:block"/>
+        <br className=" hidden sm:block" />
         <LogOut logout={props.logout} />
-        
       </div>
     </div>
   )

@@ -6,7 +6,7 @@ export default function Favorites() {
   const favorites = useSelector((state) => state.myFavorites)
 
   return (
-    <div className="m-2 p-2  flex flex-wrap flex-row-reverse justify-center ">
+    <div className="p-2 pt-36 md:pt-12 mt-[9rem]" id="cardsWrapper">
       {favorites.map((favorite) => {
 console.log(favorite)
 return (

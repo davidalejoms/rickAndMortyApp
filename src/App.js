@@ -37,7 +37,7 @@ function App() {
       .get(`https://rickandmortyapi.com/api/character/${id}`)
       .then(({ data }) => {
         if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data])
+          setCharacters((oldChars) => [ data, ...oldChars])
         } else {
           window.alert("¡No hay personajes con este ID!")
         }
@@ -96,10 +96,14 @@ meter 6 para ir mirando inicio
     navigate("/")
   }
 
+  const clear =()=>{
+   
+    setCharacters([])
+  }
   return (
     <div className="App">
       {/* <Wither /> */}
-      <Nav addWithId={onSearch} AddRandom={Random} location={location.pathname} logout={logout} preload={preload} />
+      <Nav addWithId={onSearch} AddRandom={Random} location={location.pathname} logout={logout} preload={preload} clear={clear}/>
       <AlertBar warning={warning} />
       <Routes>
         <Route path="/" element={<Login login={login} />} />
