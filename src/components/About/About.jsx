@@ -13,23 +13,23 @@ function AddRandom(props) {
           <hr className="border-1 mt-1 mr-10 shadow shadow-green-300 border-green-300 rounded" />
           <br />
           <h2 className="mt-3">
-            <i class="fa-solid fa-code mr-4 text-xl "></i>Desarrollador de Software
+            <i className="fa-solid fa-code mr-4 text-xl "></i>Desarrollador de Software
           </h2>
           <h2 className="mt-3">
-            <i class="fa-solid fa-flag mr-4 text-xl "></i>Colombiano
+            <i className="fa-solid fa-flag mr-4 text-xl "></i>Colombiano
           </h2>
           <h2 className="mt-3">
-            <i class="fa-solid fa-share-nodes mr-4 text-xl "></i>NodeJS - Express for Backend
+            <i className="fa-solid fa-share-nodes mr-4 text-xl "></i>NodeJS - Express for Backend
           </h2>
           <h2 className="mt-3">
-            <i class="fa-solid fa-atom mr-4 text-xl "></i>React - Next - tailwind for Frontend
+            <i className="fa-solid fa-atom mr-4 text-xl "></i>React - Next - tailwind for Frontend
           </h2>
           <h2 className="mt-3">
-            <i class="fa-solid fa-code mr-4 text-xl "></i>Desarrollador de Software
+            <i className="fa-solid fa-code mr-4 text-xl "></i>Desarrollador de Software
           </h2>
           <div className="my-6 text-center rounded-full px-6 py-2 bg-slate-400 text-slate-900 hover:bg-black hover:text-slate-50">
             <a href="https://api.whatsapp.com/send?phone=573115228664&text=Hola,me%20Interesa%20trabajar%20Contigo%20David" target="_blank">
-              <i class="fa-brands fa-whatsapp mr-4 text-xl "></i>Contacto
+              <i className="fa-brands fa-whatsapp mr-4 text-xl "></i>Contacto
             </a>
           </div>
 

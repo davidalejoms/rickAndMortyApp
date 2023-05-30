@@ -9,7 +9,7 @@ export default function Favorites() {
   return (
     <div className="p-2 pt-36 md:pt-12 mt-[9rem]" id="cardsWrapper">
       {favorites.map((favorite) => {
-console.log(favorite)
+// console.log(favorite)
 return (
               <Card
               key={favorite.id}

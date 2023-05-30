@@ -26,9 +26,9 @@ export default function Nav(props) {
     }
   }
 
- // useEffect(() => perrmissions(location), [location])
+  // useEffect(() => perrmissions(location), [location])
 
-const navigate1 = useNavigate()
+  const navigate1 = useNavigate()
 
   useEffect(() => {
     if (myFavorites.length === 0) {
