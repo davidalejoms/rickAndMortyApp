@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react"
+import React, { useEffect, useLayoutEffect, useState, componentDidUpdate } from "react"
 import SearchBar from "../SearchBar/SearchBar"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import AddRandom from "../AddRandom/AddRandom"
@@ -8,14 +8,21 @@ import { useSelector } from "react-redux"
 
 export default function Nav(props) {
   //accesibilidad
-  const location = useLocation() //PARA RECOGER UBICACION
-  const initial = { home: true, about: true, favorites: true, random: true, random12: true, clear: true, searchBar: true }
+  const location = useLocation().pathname //PARA RECOGER UBICACION
+  const initial = {
+    home: true,
+    about: true,
+    favorites: true,
+    random: true,
+    random12: true,
+    clear: true,
+    searchBar: true,
+  }
   const myFavorites = useSelector((state) => state.myFavorites) //para acceder a favoritos
   const [permissionStatus, setPermission] = useState(initial)
-  
 
   const perrmissions = () => {
-    switch (location.pathname) {
+    switch (location) {
       case "/home":
         return setPermission(initial)
       case "/about":
@@ -26,13 +33,14 @@ export default function Nav(props) {
         return initial
     }
   }
-//================================================ problema inicio
-//useEffect(() => perrmissions(),[location] )
-//================================================ problema fin
 
+  //================================================ problema inicio
+  useEffect(() => perrmissions(), [location])
+  //================================================ problema fin
 
   const navigate1 = useNavigate()
   useEffect(() => {
+    //sin favoritos se esconde ese menu
     if (myFavorites.length === 0) {
       navigate1("/home")
     }
@@ -58,12 +66,13 @@ export default function Nav(props) {
           About
         </Link>
 
-        <div className={myFavorites.length === 0 ? "hidden" : "block"}>
+        {myFavorites.length !== 0 && (
           <Link to="/favorites" element="Favorites">
             <i className="fa-solid fa-star mr-1"></i>
             My favs
           </Link>
-        </div>
+        )}
+
         <div className={!permissionStatus.random ? "hidden" : "block"}>
           <AddRandom AddRandom={props.AddRandom} label="Random" />
         </div>
