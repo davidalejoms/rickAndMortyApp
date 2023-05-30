@@ -8,14 +8,18 @@ export default function AlertBar(props) {
   } else {
     state = styles.AlertBar
   }
+  //funcion para esconder el elemento por 3.5 segundos
+  setTimeout(function() {
+    console.log('exucuting...')
+    document.getElementById("alertBar").classList.add("hidden");
+  }, 5500);
 
   return (
     <div className="pt-40">
-      <div className={props.warning !== "" ? "bg-red-50 p-4 " : "hidden"}>
+      <div className={props.warning !== "" ? "bg-red-50 p-4 " : "hidden"} id="alertBar">
         <div className="flex justify-center ">
           <div className="flex-shrink-0">
-          <i className="fa-solid fa-triangle-exclamation text-red-500"></i>
-          
+            <i className="fa-solid fa-triangle-exclamation text-red-500"></i>
           </div>
           <div className="ml-3  ">
             <h3 className="text-sm font-medium text-red-800 text-left ml-6 ">Errores en tu busqueda!</h3>
@@ -26,6 +30,7 @@ export default function AlertBar(props) {
             </div>
           </div>
         </div>
+        <hr className="border-4 shadow-xl shadow-red-600 border-b-red-700 float-right animate-alertLoader" />
       </div>
     </div>
   )
