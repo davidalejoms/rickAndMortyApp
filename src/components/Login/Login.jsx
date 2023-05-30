@@ -77,6 +77,7 @@ export default function Login(props) {
               className=" px-3 py-1 w-[90%] rounded-full mx-auto  text-gray-900 "
               name="password"
               type="password"
+              autoComplete={userData.password}
               value={userData.password}
               onChange={handleChange}
             />

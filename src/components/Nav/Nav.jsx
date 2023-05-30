@@ -1,34 +1,40 @@
 import React, { useEffect, useLayoutEffect, useState } from "react"
 import SearchBar from "../SearchBar/SearchBar"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useNavigate, useLocation } from "react-router-dom"
 import AddRandom from "../AddRandom/AddRandom"
 import LogOut from "../LogOut/LogOut"
 import Clear from "../Clear/Clear"
 import { useSelector } from "react-redux"
+
 export default function Nav(props) {
   //accesibilidad
   const location = useLocation() //PARA RECOGER UBICACION
   const initial = { home: true, about: true, favorites: true, random: true, random12: true, clear: true, searchBar: true }
   const myFavorites = useSelector((state) => state.myFavorites) //para acceder a favoritos
-  console.log(myFavorites)
+  // console.log(myFavorites)
   const [permissionStatus, setPermission] = useState(initial)
-  const perrmissions = (location) => {
+  const perrmissions = () => {
     switch (location.pathname) {
       case "/home":
-        console.log("home:", location.pathname)
         return setPermission(initial)
       case "/about":
-        console.log("about:", location.pathname)
         return setPermission({ ...permissionStatus, random: false, random12: false, clear: false, searchBar: false })
       case "/favorites":
-        console.log("favorites:", location.pathname)
-        return setPermission({ ...permissionStatus, random: false, random12: false, clear: false, searchBar: false })
+        return setPermission({ ...permissionStatus, random: false, random12: false, clear: true, searchBar: false })
       default:
         return initial
     }
   }
 
-  useEffect(() => perrmissions(location), [location])
+ // useEffect(() => perrmissions(location), [location])
+
+const navigate1 = useNavigate()
+
+  useEffect(() => {
+    if (myFavorites.length === 0) {
+      navigate1("/home")
+    }
+  }, [myFavorites])
 
   return (
     <div
@@ -50,7 +56,7 @@ export default function Nav(props) {
           About
         </Link>
 
-        <div className={myFavorites.length <= 0 ? "hidden" : "block"}>
+        <div className={myFavorites.length === 0 ? "hidden" : "block"}>
           <Link to="/favorites" element="Favorites">
             <i className="fa-solid fa-star mr-1"></i>
             My favs
