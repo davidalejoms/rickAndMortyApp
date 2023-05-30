@@ -30,12 +30,14 @@ export default function Nav(props) {
       case "/favorites":
         return setPermission({ ...permissionStatus, random: false, random12: false, clear: true, searchBar: false })
       default:
-        return initial
+        return {...initial}
     }
   }
 
   //================================================ problema inicio
-  useEffect(() => perrmissions(), [location])
+  useEffect(() => {
+    perrmissions()
+  }, [location])
   //================================================ problema fin
 
   const navigate1 = useNavigate()
