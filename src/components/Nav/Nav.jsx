@@ -26,8 +26,9 @@ export default function Nav(props) {
         return initial
     }
   }
-
-   useEffect(() => perrmissions(),[location] )
+//================================================ problema inicio
+//useEffect(() => perrmissions(),[location] )
+//================================================ problema fin
 
 
   const navigate1 = useNavigate()
