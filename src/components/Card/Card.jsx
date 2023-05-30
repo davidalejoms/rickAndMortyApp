@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { /* connect, */ useDispatch, useSelector } from "react-redux"
 import { addFav, removeFav } from "../../redux/actions"
 // ==============================================================
@@ -43,6 +43,8 @@ export default function Card(props) {
     }
   }
 
+  const location=useLocation().pathname
+
   return (
     <div
       key={props.id}
@@ -67,7 +69,7 @@ export default function Card(props) {
           ></button>
         )}
         <button
-          className=" fa-solid fa-trash fa-xl absolute top-2 right-2 text-red-600 bg-gray-200 p-4 rounded-full  "
+          className={location==='/favorites'?"":" fa-solid fa-trash fa-xl absolute top-2 right-2 text-red-600 bg-gray-200 p-4 rounded-full  "}
           onClick={closeCardHandler}
           value={props.id}
         ></button>
