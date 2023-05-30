@@ -2,10 +2,10 @@ import React from "react"
 import profilePic from "./profilePic.png"
 function AddRandom(props) {
   return (
-    <div className="pt-40">
+    <div className="pt-1
+    ">
       <div
-        className="text-white text-left mt-10 w-2/3  p-8   mx-auto flex flex-row 
-       items-center flex-wrap-reverse  "
+        className="text-white text-left mt-10 w-2/3 p-8 mx-auto flex flex-row items-center flex-wrap-reverse"
         id="ProfileWrapper"
       >
         <div id="profileInfo" className="bg-slate-900 bg-opacity-90  min-w-[350px]   shadow-green-300 shadow-2xl  rounded-l-2xl p-8 my-12">
@@ -29,7 +29,7 @@ function AddRandom(props) {
           </h2>
           <div className="my-6 text-center rounded-full px-6 py-2 bg-slate-400 text-slate-900 hover:bg-black hover:text-slate-50">
             <a href="https://api.whatsapp.com/send?phone=573115228664&text=Hola,me%20Interesa%20trabajar%20Contigo%20David" target="_blank">
-              <i class="fa-brands fa-whatsapp mr-4 text-2xl "></i>Contacto
+              <i class="fa-brands fa-whatsapp mr-4 text-xl "></i>Contacto
             </a>
           </div>
 

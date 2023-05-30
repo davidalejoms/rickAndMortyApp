@@ -11,6 +11,8 @@ import Detail from "./components/Detail/Detail"
 import NotFound from "./components/NotFound/NotFound"
 import Login from "./components/Login/Login"
 import Favorites from "./components/Favorites/Favorites"
+import { useDispatch } from "react-redux"
+import { removeFav } from "./redux/actions"
 
 function App() {
   const [characters, setCharacters] = React.useState([])
@@ -37,7 +39,7 @@ function App() {
       .get(`https://rickandmortyapi.com/api/character/${id}`)
       .then(({ data }) => {
         if (data.name) {
-          setCharacters((oldChars) => [ data, ...oldChars])
+          setCharacters((oldChars) => [data, ...oldChars])
         } else {
           window.alert("¡No hay personajes con este ID!")
         }
@@ -79,8 +81,6 @@ meter 6 para ir mirando inicio
   }, [access])
 
   function login(userData) {
-
-
     if (userData.password === PASSWORD && userData.user === EMAIL) {
       setAccess(true)
       navigate("/home")
@@ -96,14 +96,15 @@ meter 6 para ir mirando inicio
     navigate("/")
   }
 
-  const clear =()=>{
-   
+  const dispatcher = useDispatch()
+  const clear = () => {
     setCharacters([])
+    dispatcher(removeFav("all"))
   }
   return (
     <div className="App">
       {/* <Wither /> */}
-      <Nav addWithId={onSearch} AddRandom={Random} location={location.pathname} logout={logout} preload={preload} clear={clear}/>
+      <Nav addWithId={onSearch} AddRandom={Random} location={location.pathname} logout={logout} preload={preload} clear={clear} />
       <AlertBar warning={warning} />
       <Routes>
         <Route path="/" element={<Login login={login} />} />

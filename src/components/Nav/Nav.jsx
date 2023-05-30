@@ -1,12 +1,35 @@
-import React, { useEffect } from "react"
-import style from "./Nav.module.css"
+import React, { useEffect, useLayoutEffect, useState } from "react"
 import SearchBar from "../SearchBar/SearchBar"
 import { Link, useLocation } from "react-router-dom"
 import AddRandom from "../AddRandom/AddRandom"
 import LogOut from "../LogOut/LogOut"
 import Clear from "../Clear/Clear"
-
+import { useSelector } from "react-redux"
 export default function Nav(props) {
+  //accesibilidad
+  const location = useLocation() //PARA RECOGER UBICACION
+  const initial = { home: true, about: true, favorites: true, random: true, random12: true, clear: true, searchBar: true }
+  const myFavorites = useSelector((state) => state.myFavorites) //para acceder a favoritos
+  console.log(myFavorites)
+  const [permissionStatus, setPermission] = useState(initial)
+  const perrmissions = (location) => {
+    switch (location.pathname) {
+      case "/home":
+        console.log("home:", location.pathname)
+        return setPermission(initial)
+      case "/about":
+        console.log("about:", location.pathname)
+        return setPermission({ ...permissionStatus, random: false, random12: false, clear: false, searchBar: false })
+      case "/favorites":
+        console.log("favorites:", location.pathname)
+        return setPermission({ ...permissionStatus, random: false, random12: false, clear: false, searchBar: false })
+      default:
+        return initial
+    }
+  }
+
+  useEffect(() => perrmissions(location), [location])
+
   return (
     <div
       className={
@@ -19,21 +42,33 @@ export default function Nav(props) {
       </div>
 
       <div className=" mx-auto flex items-center justify-center  flex-wrap gap-6 text-white py-6 " id="navBar">
-        <Link to="/Home">
-          <i className="fa-solid fa-home mr-1"></i> Home
+        <Link to="/home">
+          <i className="fa-solid fa-home mr-1"></i> App
         </Link>
-        <Link to="/About" element="About">
+        <Link to="/about" element="About">
           <i className="fa-solid fa-user mr-1"></i>
           About
         </Link>
-        <Link to="/favorites" element="Favorites">
-          <i className="fa-solid fa-star mr-1"></i>
-          My favs
-        </Link>
-        <AddRandom AddRandom={props.AddRandom} label="Random" />
-        <AddRandom AddRandom={props.AddRandom} preload={props.preload} label="+12 Randomly" />
-        <Clear clear={props.clear} label="Clear All" />
-        <SearchBar onSearch={props.addWithId} AddRandom={props.AddRandom} logout={props.logout} />
+
+        <div className={myFavorites.length <= 0 ? "hidden" : "block"}>
+          <Link to="/favorites" element="Favorites">
+            <i className="fa-solid fa-star mr-1"></i>
+            My favs
+          </Link>
+        </div>
+        <div className={!permissionStatus.random ? "hidden" : "block"}>
+          <AddRandom AddRandom={props.AddRandom} label="Random" />
+        </div>
+        <div className={!permissionStatus.random12 ? "hidden" : "block"}>
+          <AddRandom AddRandom={props.AddRandom} preload={props.preload} label="+12 Randomly" />
+        </div>
+        <div className={!permissionStatus.clear ? "hidden" : "block"}>
+          <Clear clear={props.clear} label="Clear All" />
+        </div>
+
+        <div className={!permissionStatus.searchBar ? "hidden" : "block"}>
+          <SearchBar onSearch={props.addWithId} AddRandom={props.AddRandom} logout={props.logout} />
+        </div>
         <br className=" hidden sm:block" />
         <LogOut logout={props.logout} />
       </div>

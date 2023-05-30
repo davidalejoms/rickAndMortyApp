@@ -2,6 +2,7 @@ import React from "react"
 import { useSelector } from "react-redux"
 import Card from "../Card/Card"
 import Cards from "../Cards/Cards"
+//==============================================================
 export default function Favorites() {
   const favorites = useSelector((state) => state.myFavorites)
 

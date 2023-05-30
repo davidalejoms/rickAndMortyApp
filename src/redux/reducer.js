@@ -7,12 +7,15 @@ const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAV:
       return { ...state, myFavorites: [...state.myFavorites, action.payload] }
-      case REMOVE_FAV:
-       console.log( 'el state es:',state.myFavorites)
-        console.log("el id a remover es: ", action.payload)
+    case REMOVE_FAV:
+      if (action.payload!=='all') {
         return {
-        ...state,
-        myFavorites: state.myFavorites.filter((char) => char.id !== parseInt(action.payload)),
+          ...state,
+          myFavorites: state.myFavorites.filter((char) => char.id !== parseInt(action.payload)),
+        }
+      }else if (action.payload==='all') {
+        
+        return initialState
       }
 
     default:

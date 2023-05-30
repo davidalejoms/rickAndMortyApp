@@ -1,5 +1,4 @@
 import React from "react"
-import styles from "./AddRandom.module.css"
 function AddRandom(props) {
   const randomHandler = () => {
   if (props.preload){
