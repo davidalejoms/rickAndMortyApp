@@ -11,8 +11,9 @@ export default function Nav(props) {
   const location = useLocation() //PARA RECOGER UBICACION
   const initial = { home: true, about: true, favorites: true, random: true, random12: true, clear: true, searchBar: true }
   const myFavorites = useSelector((state) => state.myFavorites) //para acceder a favoritos
-  // console.log(myFavorites)
   const [permissionStatus, setPermission] = useState(initial)
+  
+
   const perrmissions = () => {
     switch (location.pathname) {
       case "/home":
@@ -26,10 +27,10 @@ export default function Nav(props) {
     }
   }
 
-  // useEffect(() => perrmissions(location), [location])
+   useEffect(() => perrmissions(),[location] )
+
 
   const navigate1 = useNavigate()
-
   useEffect(() => {
     if (myFavorites.length === 0) {
       navigate1("/home")
