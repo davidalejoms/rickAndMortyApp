@@ -50,21 +50,19 @@ export default function Detail() {
 
   // ====================================================================================return
   return (
-    <div className="pt-40">
+    <div className="pt-20">
   
       <div
         key={character.id}
-        className="mx-auto mt-40 p-14 max-w-4xl bg-gray-900 m-2 rounded-3xl grid grid-cols-2 bg-opacity-95 "
+        className="mx-auto  p-5 max-w-4xl bg-gray-900 m-2 rounded-3xl grid grid-cols-2 bg-opacity-95 shadow drop-shadow-2xl shadow-green-400 "
         id="Card"
       >
         <div className="flex items-end  justify-items-end" id="containerImage">
           <img className="min-h-full rounded-l-3xl p-3 object-cover object-center  " src={character.image} alt="" />
-          {/*=========================================  */}
           <Status vivito={character.status} />
-          {/*=========================================  */}
         </div>
         <div className="relative p-4" id="DescriptionContainer">
-        <Link to="/home" className="text-white underline text-left"> ⇇ Go Back lo list</Link>
+        <Link to="/home" className="text-white underline text-right block font-bold"> ⇇ Go Back lo list</Link>
           <h2 className="text-stone-50 text-xl text-center mt-5 leading-none my-5 ">
             Name <br />
             <strong className=" text-3xl text-stone-50">{character.name}</strong> <br />

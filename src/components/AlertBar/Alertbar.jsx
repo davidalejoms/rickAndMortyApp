@@ -10,7 +10,6 @@ export default function AlertBar(props) {
   }
   //funcion para esconder el elemento por 3.5 segundos
   setTimeout(function() {
-    console.log('exucuting...')
     document.getElementById("alertBar").classList.add("hidden");
   }, 5500);
 

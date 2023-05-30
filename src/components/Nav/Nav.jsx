@@ -22,6 +22,9 @@ export default function Nav(props) {
   const [permissionStatus, setPermission] = useState(initial)
 
   const perrmissions = () => {
+    if (location.includes("/detail")) {
+      return setPermission({ ...permissionStatus, random: false, random12: false, clear: false, searchBar: false })
+    }
     switch (location) {
       case "/home":
         return setPermission(initial)
@@ -30,7 +33,7 @@ export default function Nav(props) {
       case "/favorites":
         return setPermission({ ...permissionStatus, random: false, random12: false, clear: true, searchBar: false })
       default:
-        return {...initial}
+        return { ...initial }
     }
   }
 

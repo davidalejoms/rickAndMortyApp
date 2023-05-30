@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { /* connect, */ useDispatch, useSelector } from "react-redux"
 import { addFav, removeFav } from "../../redux/actions"
 // ==============================================================
@@ -42,38 +42,29 @@ export default function Card(props) {
       dispatch(addFav(props)) //estado global
     }
   }
-
   const location=useLocation().pathname
+const navigate = useNavigate()
+  const toChar=()=>{
+navigate(`/detail/${props.id}`)
+}
 
   return (
-    <div
+ <div className="bg-gray-900 bg-opacity-85 m-2 rounded-3xl  relative z-50 shadow-2xl  shadow-emerald-600  text-slate-300 animate hover:border-4 hover:border-green-400 hover:shadow-xl hover:shadow--500 cursor-pointer">
+      
+     <div
       key={props.id}
-      className=" bg-gray-900 bg-opacity-85  relative m-2 rounded-3xl grid grid-cols-2 opacity-95 /* max-w-sm */ shadow-2xl  shadow-emerald-600  text-slate-300  "
-    >
-      <div className="flex items-end justify-items-end" id="containerImage">
+      className=" h-full  grid grid-cols-2 opacity-95  "
+      id="cardHolder"
+      onClick={()=> toChar()}
+      >
+      
+      <div className="flex items-end justify-items-end " id="containerImage" >
         <img className="min-h-full rounded-l-3xl p-3 object-cover object-center  " src={props.image} alt="" />
 
         <div className={icon}></div>
       </div>
       <div className="relative p-4 pl-0" id="DescriptionContainer">
-        {isFav ? (
-          <button
-            className="z-100 absolute top-2 right-20 text-red-500 fa-solid fa-heart text-3xl px-3 rounded-full bg-gray-300"
-            onClick={handleFavorite}
-            value={props.id}
-          ></button>
-        ) : (
-          <button
-            className="z-100 absolute top-2 right-20 text-gray-300 fa-solid fa-heart text-3xl px-3 rounded-full bg-gray-900"
-            onClick={handleFavorite}
-          ></button>
-        )}
-        <button
-          className={location==='/favorites'?"":" fa-solid fa-trash fa-xl absolute top-2 right-2 text-red-600 bg-gray-200 p-4 rounded-full  "}
-          onClick={closeCardHandler}
-          value={props.id}
-        ></button>
-        <Link to={`/detail/${props.id}`}>
+               <Link to={`/detail/${props.id}`}>
           <h1 className="text-stone-100 text-lg text-left  mt-10 leading-none my-5 hover:underline">
             {props.id}
             <br />
@@ -98,5 +89,24 @@ export default function Card(props) {
         </h2>
       </div>
     </div>
+    {isFav ? (
+          <button
+            className="z-1000 absolute top-2 right-20 text-red-500 fa-solid fa-heart text-3xl px-3 rounded-full bg-gray-300"
+            onClick={handleFavorite}
+            value={props.id}
+          ></button>
+        ) : (
+          <button
+            className="z-100 absolute top-2 right-20 text-gray-300 fa-solid fa-heart text-3xl px-3 rounded-full bg-gray-900"
+            onClick={handleFavorite}
+          ></button>
+        )}
+        <button
+          className={location==='/favorites'?"":" fa-solid fa-trash fa-xl absolute top-2 right-2 text-red-600 bg-gray-200 p-4 rounded-full  "}
+          onClick={closeCardHandler}
+          value={props.id}
+        ></button>
+
+ </div>
   )
 }
