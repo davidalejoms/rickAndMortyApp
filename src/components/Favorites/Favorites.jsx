@@ -9,19 +9,20 @@ export default function Favorites() {
 
   const [aux, setAux] = useState(false)
 
-  useEffect(() => {
-    setAux(false)
-    //console.log(" ha cambiado y su valor es:", aux)
-  }, [aux])
+  // useEffect(() => {
+  //   setAux(false)
+  //   //console.log(" ha cambiado y su valor es:", aux)
+  // }, [aux])
 
   const handlerOrder = (e) => {
     dispatcher(orderCards(e.target.value))
     document.getElementById("filter").value = "Default"
-    setAux(true)
+    setAux(!aux)
   }
 
   const handlerFilter = (e) => {
     dispatcher(filterCards(e.target.value))
+    setAux(!aux)
   }
   return (
     <div>

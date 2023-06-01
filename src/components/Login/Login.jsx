@@ -14,6 +14,7 @@ export default function Login(props) {
     user: "",
     password: "",
   })
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleChange = (event) => {
     const name = event.target.name
@@ -34,11 +35,16 @@ export default function Login(props) {
       // setErrors({})
     } else alert("Debe llenar todos los campos")
   }
+  const viewerHandler = (e) => {
+    setShowPassword(!showPassword)
+  }
 
   return (
     <div className="pt-6">
-      <div  className="  max-w-sm mx-auto bg-gray-900 bg-opacity-70
-    rounded-xl">
+      <div
+        className="  max-w-sm mx-auto bg-gray-900 bg-opacity-70
+    rounded-xl"
+      >
         <img className=" w-[80%] mx-auto py-4" src={logo} />
         <form className=" p-4 flex flex-col mt-10  border-t-[4px] border-gray-950  rounded-xl text-left " onSubmit={handleSubmit}>
           <div className="flex flex-col  justify-center mt-4  relative">
@@ -76,11 +82,20 @@ export default function Login(props) {
             <input
               className=" px-3 py-1 w-[90%] rounded-full mx-auto  text-gray-900 "
               name="password"
-              type="password"
+              id="password"
+              type={showPassword ? "text" : "password"}
               autoComplete={userData.password}
               value={userData.password}
               onChange={handleChange}
             />
+            <i
+              className={
+                showPassword
+                  ? "fa-solid fa-eye-slash text-gray-700 absolute bottom-2 right-7"
+                  : "fa-solid fa-eye text-gray-700 absolute bottom-2 right-7"
+              }
+              onClick={viewerHandler}
+            ></i>
           </div>
 
           <div className="flex  flex-end items-center justify-end mt-4">
