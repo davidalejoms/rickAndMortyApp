@@ -15,9 +15,9 @@ export default function Favorites() {
   }, [aux])
 
   const handlerOrder = (e) => {
-    setAux(true)
     dispatcher(orderCards(e.target.value))
     document.getElementById("filter").value = "Default"
+    setAux(true)
   }
 
   const handlerFilter = (e) => {

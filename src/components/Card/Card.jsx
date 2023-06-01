@@ -52,7 +52,6 @@ export default function Card(props) {
   return (
     <div className="bg-gray-900 bg-opacity-85 m-1 rounded-3xl  relative z-50 shadow-2xl border-4 border-gray-900 shadow-emerald-600  text-slate-300 animate hover:border-4 hover:border-green-400 hover:shadow-xl hover:shadow--500 cursor-pointer">
       <div key={useId()} className=" h-full  grid grid-cols-2 opacity-95  " id="cardHolder" onClick={() => toChar()}>
-        {console.log("useId():", useId())}
         <div className="flex items-end justify-items-end " id="containerImage">
           <img className="min-h-full rounded-l-3xl p-3 object-cover object-center  " src={props.image} alt="" />
 

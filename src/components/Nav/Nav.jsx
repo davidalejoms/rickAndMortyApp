@@ -43,13 +43,13 @@ export default function Nav(props) {
   }, [location])
   //================================================ problema fin
 
-  const navigate1 = useNavigate()
-  useEffect(() => {
-    //sin favoritos se esconde ese menu
-    if (myFavorites.length === 0) {
-      navigate1("/home")
-    }
-  }, [myFavorites, navigate1])
+  // const navigate1 = useNavigate()
+  // useEffect(() => {
+  //sin favoritos se esconde ese menu
+  //   if (myFavorites.length === 0) {
+  //     navigate1("/home")
+  //   }
+  // }, [myFavorites, navigate1])
 
   return (
     <div

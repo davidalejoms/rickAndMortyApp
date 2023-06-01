@@ -57,11 +57,8 @@ function App() {
     const uniquer = () => {
       let randomInt = Math.floor(Math.random() * 826) + 1
       if (characters.some((char) => char.id === randomInt)) {
-        console.log("entro un repetido: ", randomInt)
-        //randomInt = Math.floor(Math.random() * 826) + 1
         return uniquer()
       } else {
-        console.log("normalito: ", randomInt)
         return randomInt
       }
     }
@@ -72,15 +69,9 @@ meter 6 para ir mirando inicio
 */
   const preload = (q) => {
     for (let i = 0; i < q; i++) {
-      setTimeout(() => {
-        Random()
-      }, 2000)
+      Random()
     }
   }
-
-  useEffect(() => {
-    // preload()
-  }, [characters])
 
   const location = useLocation()
 
@@ -92,21 +83,25 @@ meter 6 para ir mirando inicio
   useEffect(() => {
     !access && navigate("/")
     // console.info("access: ->", access)
-  }, [access])
+  }, [access, navigate])
 
   function login(userData) {
     if (userData.password === PASSWORD && userData.user === EMAIL) {
       setAccess(true)
+      setAccess(true)
+      // console.log("login called ")
+      // console.info("el estado de access es:", access)
       navigate("/home")
+    } else {
+      alert("revise sus credenciales, Acceso denegado")
     }
   }
-  useEffect(() => {
-    !access && navigate("/")
-  }, [access])
 
   const logout = () => {
-    console.info("entrando bien")
-    console.info("el estado de access es:", access)
+    // console.info("logotut called")
+    setAccess(false)
+    setAccess(false)
+    // console.info("el estado de access es:", access)
     navigate("/")
   }
 
