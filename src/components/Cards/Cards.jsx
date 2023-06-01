@@ -5,11 +5,10 @@ export default function Cards(props) {
   return (
     // <div  className={style.CardsContainer}>
     // <div  className="m-2 p-2 /* grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 */ flex ">
-   
-   <div className="">
-   <div className=" max-w-7xl mt-0  mx-auto" id="bodyWrapper">
+
+    <div className="">
       {/* <div className=" p-2  flex flex-wrap flex-auto justify-left w-full" id="cardsWrapper"> */}
-      <div className=" p-2 pt-36 md:pt-12  " id="cardsWrapper">
+      <div className=" pt-4 px-3    " id="cardsWrapper">
         {props.characters.map((character) => {
           return (
             <Card
@@ -26,7 +25,6 @@ export default function Cards(props) {
           )
         })}
       </div>
-    </div>
     </div>
   )
 }

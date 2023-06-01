@@ -1,10 +1,11 @@
-import React, { useEffect, useLayoutEffect, useState, componentDidUpdate } from "react"
-import SearchBar from "../SearchBar/SearchBar"
+import React, { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 import { Link, useNavigate, useLocation } from "react-router-dom"
+import SearchBar from "../SearchBar/SearchBar"
 import AddRandom from "../AddRandom/AddRandom"
 import LogOut from "../LogOut/LogOut"
 import Clear from "../Clear/Clear"
-import { useSelector } from "react-redux"
+// import { SearchBar, AddRandom, LogOut, Clear } from '../index' //! revisar
 
 export default function Nav(props) {
   //accesibilidad
@@ -18,7 +19,7 @@ export default function Nav(props) {
     clear: true,
     searchBar: true,
   }
-  const myFavorites = useSelector((state) => state.myFavorites) //para acceder a favoritos
+  const myFavorites = useSelector((state) => state.allCharacters) //para acceder a favoritos
   const [permissionStatus, setPermission] = useState(initial)
 
   const perrmissions = () => {
@@ -36,7 +37,6 @@ export default function Nav(props) {
         return { ...initial }
     }
   }
-
   //================================================ problema inicio
   useEffect(() => {
     perrmissions()
@@ -49,13 +49,11 @@ export default function Nav(props) {
     if (myFavorites.length === 0) {
       navigate1("/home")
     }
-  }, [myFavorites])
+  }, [myFavorites, navigate1])
 
   return (
     <div
-      className={
-        props.location === "/" ? "hidden" : " w-full  bg-gray-900 bg-opacity-90 shadow-lg shadow-green-300 fixed top-0 left-0 z-10"
-      }
+      className={props.location === "/" ? "hidden" : " w-full  bg-gray-900 bg-opacity-90 shadow-lg shadow-green-300 fixed_ top-0  left-0 "}
     >
       <div className={"text-center flex justify-center gap-10 items-center  py-3"} id="titleWrapper">
         <span className="  text-gray-300 text-2xl">By David Mejia</span>

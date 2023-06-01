@@ -1,23 +1,57 @@
-import { ADD_FAV, REMOVE_FAV } from "../redux/actions"
+import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "../redux/actions"
 const initialState = {
   myFavorites: [],
+  allCharacters: [],
 }
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAV:
-      return { ...state, myFavorites: [...state.myFavorites, action.payload] }
+      return { ...state, allCharacters: [...state.allCharacters, action.payload], myFavorites: [...state.allCharacters, action.payload] }
+    case FILTER:
+      if (action.payload === "Default") {
+        return { ...state, myFavorites: state.allCharacters }
+      } else {
+        const bygender = state.allCharacters.filter((is) => is.gender === action.payload)
+        return { ...state, myFavorites: bygender }
+      }
+    case ORDER:
+      let orderedChars = []
+      if (!action.payload) {
+        return { ...state, myFavorites: state.allCharacters }
+      } else if (action.payload === "A") {
+        orderedChars = state.allCharacters.sort((a, b) => {
+          if (a.name < b.name) {
+            return -1
+          }
+          if (a.name > b.name) {
+            return 1
+          }
+          return 0
+        })
+      } else if (action.payload === "D") {
+        orderedChars = state.allCharacters.sort((b, a) => {
+          if (a.name < b.name) {
+            return -1
+          }
+          if (a.name > b.name) {
+            return 1
+          }
+          return 0
+        })
+      }
+      return { ...state, myFavorites: orderedChars }
     case REMOVE_FAV:
-      if (action.payload!=='all') {
+      if (action.payload !== "all") {
         return {
           ...state,
           myFavorites: state.myFavorites.filter((char) => char.id !== parseInt(action.payload)),
+          allCharacters: state.myFavorites.filter((char) => char.id !== parseInt(action.payload)),
         }
-      }else if (action.payload==='all') {
-        
+      } else if (action.payload === "all") {
         return initialState
       }
-
+      break
     default:
       return { ...state }
   }

@@ -4,8 +4,10 @@
 .App {
   text-align: center;
   min-height: 100vh;
+  min-width: 370px;
 
   /* filter: blur(8px); */
+  background: fixed;
   background-image: url("../public/assets/images/rick-morty-bg-2.webp");
   background-repeat: no-repeat;
   background-position: center;
@@ -16,7 +18,7 @@
   display: grid;
   width: 100%;
   gap: 0.4rem;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   grid-auto-flow: dense;
 }
 /* div{
@@ -71,5 +73,3 @@ input[type="search"]::-webkit-search-results-decoration {
 .animate-cardFeatures {
   animation: cardFeatures 1s linear;
 }
-
-

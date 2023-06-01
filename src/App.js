@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 
-import Wither from "./components/Wither/Wither"
+// import Wither from "./components/Wither/Wither"
 import Nav from "./components/Nav/Nav"
 import Cards from "./components/Cards/Cards.jsx"
 import AlertBar from "./components/AlertBar/Alertbar"
@@ -53,14 +53,28 @@ function App() {
     setCharacters(characters.filter((cartoon) => cartoon.id !== parseInt(id)))
   }
   const Random = () => {
-    onSearch(Math.floor(Math.random() * 826) + 1)
+    //compara lo que llega con el estado, si existe volver a llamar
+    const uniquer = () => {
+      let randomInt = Math.floor(Math.random() * 826) + 1
+      if (characters.some((char) => char.id === randomInt)) {
+        console.log("entro un repetido: ", randomInt)
+        //randomInt = Math.floor(Math.random() * 826) + 1
+        return uniquer()
+      } else {
+        console.log("normalito: ", randomInt)
+        return randomInt
+      }
+    }
+    onSearch(uniquer())
   }
   /* 
 meter 6 para ir mirando inicio
 */
   const preload = (q) => {
     for (let i = 0; i < q; i++) {
-      Random()
+      setTimeout(() => {
+        Random()
+      }, 2000)
     }
   }
 
