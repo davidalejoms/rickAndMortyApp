@@ -98,10 +98,10 @@ meter 6 para ir mirando inicio
   }
 
   useEffect(() => {
-    const session = localStorage.getItem("session").valueOf()
+    //const session = localStorage.getItem("session").valueOf()
     !access && navigate("/")
-    if (session === "true") console.log("si")
-    else if (session === "false") navigate("/")
+    //if (session === "true") console.log("si")
+    //else if (session === "false") navigate("/")
   }, [access, navigate])
 
   const dispatcher = useDispatch()

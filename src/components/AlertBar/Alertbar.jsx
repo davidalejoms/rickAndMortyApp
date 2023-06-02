@@ -2,15 +2,15 @@ import React from "react"
 import styles from "./AlertBar.module.css"
 
 export default function AlertBar(props) {
-  let state = ".inactive"
-  if (props.warning === "") {
-    state = styles.inactive
-  } else {
-    state = styles.AlertBar
-  }
-  setTimeout(function () {
-    document.getElementById("alertBar").classList.add("hidden")
-  }, 5500)
+  // let state = ".inactive"
+  // if (props.warning === "") {
+  //   state = styles.inactive
+  // } else {
+  //   state = styles.AlertBar
+  // }
+  // setTimeout(function () {
+  //   document.getElementById("alertBar").classList.add("hidden")
+  // }, 5500)
   //funcion para esconder el elemento por 3.5 segundos
 
   return (
