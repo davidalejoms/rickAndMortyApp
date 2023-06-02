@@ -114,7 +114,7 @@ meter 6 para ir mirando inicio
     setCharacters([])
     dispatcher(removeFav("all"))
   }
-  // if (access === false) return 0
+
   return (
     <div className="App">
       {/* <Wither /> */}
