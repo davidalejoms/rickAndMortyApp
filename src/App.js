@@ -97,11 +97,6 @@ meter 6 para ir mirando inicio
     navigate("/")
   }
 
-  // useEffect(() => {
-
-  //   //setAccess(!access)
-  // }, [])
-
   useEffect(() => {
     const session = localStorage.getItem("session").valueOf()
     !access && navigate("/")
