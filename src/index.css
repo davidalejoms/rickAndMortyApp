@@ -58,18 +58,3 @@ input[type="search"]::-webkit-search-results-decoration {
 .animate-alertLoader {
   animation: alertLoader 3.5s linear;
 }
-
-/* para el carde feauter hover */
-@keyframes cardFeatures {
-  0% {
-    border: 0px solid green;
-  }
-  100% {
-    border: 5px solid green;
-    background-color: red;
-  }
-}
-
-.animate-cardFeatures {
-  animation: cardFeatures 1s linear;
-}

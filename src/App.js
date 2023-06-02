@@ -98,10 +98,7 @@ meter 6 para ir mirando inicio
   }
 
   useEffect(() => {
-    //const session = localStorage.getItem("session").valueOf()
     !access && navigate("/")
-    //if (session === "true") console.log("si")
-    //else if (session === "false") navigate("/")
   }, [access, navigate])
 
   const dispatcher = useDispatch()
@@ -113,7 +110,15 @@ meter 6 para ir mirando inicio
   return (
     <div className="App">
       {/* <Wither /> */}
-      <Nav addWithId={onSearch} AddRandom={Random} location={location.pathname} logout={logout} preload={preload} clear={clear} />
+      <Nav
+        addWithId={onSearch}
+        AddRandom={Random}
+        location={location.pathname}
+        logout={logout}
+        preload={preload}
+        clear={clear}
+        characters={characters}
+      />
       <AlertBar warning={warning} />
       <Routes>
         <Route path="/" element={<Login login={login} />} />

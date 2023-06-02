@@ -2,13 +2,19 @@ import React from "react"
 import profilePic from "./profilePic.png"
 function AddRandom(props) {
   return (
-    <div className="pt-1
-    ">
+    <div
+      className="pt-1
+    "
+    >
       <div
-        className="text-white text-left mt-10 w-2/3 p-8 mx-auto flex flex-row items-center flex-wrap-reverse"
+        className="text-white text-left  max-w-sm  mx-auto flex flex-row items-center justify-center flex-wrap-reverse md:flex-nowrap py-20 "
         id="ProfileWrapper"
       >
-        <div id="profileInfo" className="bg-slate-900 bg-opacity-90  min-w-[350px]   shadow-green-300 shadow-2xl  rounded-l-2xl p-8 my-12">
+        <div
+          id="profileInfo"
+          className="bg-slate-900 bg-opacity-90  min-w-[350px]   shadow-green-300 shadow-2xl  
+          rounded-b-3xl md:rounded-3xl p-8 "
+        >
           <h1 className="text-4xl font-semibold"> David Alejandro Mejia </h1>
           <hr className="border-1 mt-1 mr-10 shadow shadow-green-300 border-green-300 rounded" />
           <br />
@@ -51,7 +57,14 @@ function AddRandom(props) {
             </a>
           </div>
         </div>
-        <div id="pictureProfile" className="w-2/5 min-w-[350px]  bg-green-400 bg-opacity-70 rounded-r-3xl">
+        <div
+          id="pictureProfile"
+          className=" min-w-[350px]  bg-green-400 bg-opacity-70  shadow-2xl shadow-green-400
+        rounded-t-3xl
+        md:rounded-r-3xl
+        md:rounded-tl-none
+                "
+        >
           <img src={profilePic} alt="David Mejia" className="" />
         </div>
       </div>

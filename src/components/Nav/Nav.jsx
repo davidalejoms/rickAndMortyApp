@@ -28,7 +28,12 @@ export default function Nav(props) {
     }
     switch (location) {
       case "/home":
-        return setPermission(initial)
+        console.log("props.characters:", props.characters)
+        if (props.characters.length === 0) {
+          return setPermission({ ...initial, clear: false })
+        } else {
+          return setPermission({ ...initial })
+        }
       case "/about":
         return setPermission({ ...permissionStatus, random: false, random12: false, clear: false, searchBar: false })
       case "/favorites":
@@ -40,7 +45,7 @@ export default function Nav(props) {
   //================================================ problema inicio
   useEffect(() => {
     perrmissions()
-  }, [location])
+  }, [location, props.characters])
   //================================================ problema fin
 
   const navigate1 = useNavigate()

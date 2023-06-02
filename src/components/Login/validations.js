@@ -1,5 +1,3 @@
-
-
 export default function validate(userData) {
   //   console.info(typeof userData.user.length)
   const errors = {}
@@ -14,7 +12,7 @@ export default function validate(userData) {
 
   //   PASSWORD
   // la contraseña tiene que tener una longitud entre 6 y 10 caracteres.
-  if (userData.password.length < 6 || userData.password.length > 10) errors.password = "La contraseña debe tener entre 6 y 10 caracteres"
+  if (userData.password.length < 6 || userData.password.length > 10) errors.password = "Contraseña  entre 6 y 10 caracteres"
   // la contraseña tiene que tener al menos un número.
   if (!/\d/.test(userData.password)) errors.password = "La contraseña debe tener al menos un numero"
   // la contraseña no puede estar vacía.

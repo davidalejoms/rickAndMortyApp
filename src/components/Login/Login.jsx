@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import logo from "./login-randm.png"
 import validate from "./validations"
-import { useNavigate } from "react-router-dom"
+//import { useNavigate } from "react-router-dom"
 // eslint-disable-next-line
 
 export default function Login(props) {
@@ -51,11 +51,7 @@ export default function Login(props) {
             <label className=" text-slate-50 mb-1.5" htmlFor="password">
               Email: ( davidalejoms@gmail.com )
             </label>
-            <p
-              className={
-                errors.user && "text-sm block text-center text-red-900 w-[90%] mx-auto absolute top-16 -right-1  bg-orange-300 rounded-lg "
-              }
-            >
+            <p className={errors.user && "text-sm block text-center text-red-900 my-1 w-[90%]  mx-auto    right-1  bg-red-300 rounded "}>
               {errors.user}
             </p>
             <input
@@ -72,10 +68,7 @@ export default function Login(props) {
               Contraseña:( PASShenry2 )
             </label>
             <p
-              className={
-                errors.password &&
-                " text-sm block text-center text-red-900 w-[100%] mx-auto absolute top-16 right-1  bg-orange-300 rounded-lg "
-              }
+              className={errors.password && "text-sm block text-center text-red-900 my-1 w-[90%]  mx-auto    right-1  bg-red-300 rounded "}
             >
               {errors.password}
             </p>
