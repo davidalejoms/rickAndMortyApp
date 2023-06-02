@@ -39,7 +39,7 @@ function App() {
       .get(`https://rickandmortyapi.com/api/character/${id}`)
       .then(({ data }) => {
         if (data.name) {
-          setCharacters((oldChars) => [data, ...oldChars])
+          setCharacters((oldChars) => [data, ...oldChars]) // ESTADO LOCAL
         } else {
           window.alert("¡No hay personajes con este ID!")
         }
@@ -49,6 +49,7 @@ function App() {
         // window.alert("Ocurrió un error al obtener el personaje.")
       })
   }
+
   const onClose = (id) => {
     setCharacters(characters.filter((cartoon) => cartoon.id !== parseInt(id)))
   }
@@ -80,36 +81,40 @@ meter 6 para ir mirando inicio
   const EMAIL = "davidalejoms@gmail.com"
   const PASSWORD = "PASShenry2"
 
-  useEffect(() => {
-    !access && navigate("/")
-    // console.info("access: ->", access)
-  }, [access, navigate])
-
   function login(userData) {
     if (userData.password === PASSWORD && userData.user === EMAIL) {
       setAccess(true)
-      setAccess(true)
-      // console.log("login called ")
-      // console.info("el estado de access es:", access)
       navigate("/home")
+      localStorage.setItem("session", true) //!=========================================================
     } else {
       alert("revise sus credenciales, Acceso denegado")
     }
   }
 
   const logout = () => {
-    // console.info("logotut called")
     setAccess(false)
-    setAccess(false)
-    // console.info("el estado de access es:", access)
+    localStorage.setItem("session", false) //!=========================================================
     navigate("/")
   }
+
+  // useEffect(() => {
+
+  //   //setAccess(!access)
+  // }, [])
+
+  useEffect(() => {
+    const session = localStorage.getItem("session").valueOf()
+    !access && navigate("/")
+    if (session === "true") console.log("si")
+    else if (session === "false") navigate("/")
+  }, [access, navigate])
 
   const dispatcher = useDispatch()
   const clear = () => {
     setCharacters([])
     dispatcher(removeFav("all"))
   }
+  // if (access === false) return 0
   return (
     <div className="App">
       {/* <Wither /> */}

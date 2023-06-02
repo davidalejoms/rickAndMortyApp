@@ -9,12 +9,12 @@ export default function AlertBar(props) {
     state = styles.AlertBar
   }
   //funcion para esconder el elemento por 3.5 segundos
-  setTimeout(function () {
-    document.getElementById("alertBar").classList.add("hidden")
-  }, 5500)
 
   return (
     <div className="">
+      {setTimeout(function () {
+        document.getElementById("alertBar").classList.add("hidden")
+      }, 5500)}
       <div className={props.warning !== "" ? "bg-red-50 p-4 " : "hidden"} id="alertBar">
         <div className="flex justify-center ">
           <div className="flex-shrink-0">

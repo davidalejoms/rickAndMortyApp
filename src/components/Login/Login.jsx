@@ -42,11 +42,11 @@ export default function Login(props) {
   return (
     <div className="pt-6">
       <div
-        className="  max-w-sm mx-auto bg-gray-900 bg-opacity-70
-    rounded-xl"
+        className="  max-w-screen-sm sm:max-w-sm mx-auto bg-gray-900 bg-opacity-70
+    rounded-xl border-[2px] border-gray-50"
       >
-        <img className=" w-[80%] mx-auto py-4" src={logo} />
-        <form className=" p-4 flex flex-col mt-10  border-t-[4px] border-gray-950  rounded-xl text-left " onSubmit={handleSubmit}>
+        <img className=" w-[80%] mx-auto py-4 " src={logo} alt="login" />
+        <form className=" p-4 flex flex-col mt-10  border-[2px] border-gray-50  rounded-xl text-left " onSubmit={handleSubmit}>
           <div className="flex flex-col  justify-center mt-4  relative">
             <label className=" text-slate-50 mb-1.5" htmlFor="password">
               Email: ( davidalejoms@gmail.com )
@@ -67,7 +67,7 @@ export default function Login(props) {
             />
           </div>
 
-          <div className="flex flex-col  justify-center mt-4 relative">
+          <div className="flex flex-col  justify-center mt-6 relative">
             <label className="  text-slate-50 mb-1.5" htmlFor="Nombre">
               Contraseña:( PASShenry2 )
             </label>
