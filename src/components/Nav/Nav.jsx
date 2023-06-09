@@ -28,7 +28,7 @@ export default function Nav(props) {
     }
     switch (location) {
       case "/home":
-        console.log("props.characters:", props.characters)
+        // console.log("props.characters:", props.characters)
         if (props.characters.length === 0) {
           return setPermission({ ...initial, clear: false })
         } else {

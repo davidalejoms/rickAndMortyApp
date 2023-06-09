@@ -33,27 +33,32 @@ function AddRandom(props) {
           <h2 className="mt-3">
             <i className="fa-solid fa-code mr-4 text-xl "></i>Desarrollador de Software
           </h2>
-          <div className="my-6 text-center rounded-full px-6 py-2 bg-slate-400 text-slate-900 hover:bg-black hover:text-slate-50">
-            <a href="https://api.whatsapp.com/send?phone=573115228664&text=Hola,me%20Interesa%20trabajar%20Contigo%20David" target="_blank">
-              <i className="fa-brands fa-whatsapp mr-4 text-xl "></i>Contacto
+          <div className="my-6 text-center rounded-full px-6 py-2 bg-slate-400 text-slate-900 hover:bg-green-900 hover:text-white flex items-center justify-center text-lg ">
+            <i className="fa-brands fa-solid fa-whatsapp mr-2  text-2xl text-green-700  hover:text-slate-50  "></i>
+            <a
+              href="https://api.whatsapp.com/send?phone=573115228664&text=Hola,me%20Interesa%20trabajar%20Contigo%20David"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Contacto
             </a>
           </div>
 
           <div className="flex items-center  justify-around    mb-3 " id="networkContainer">
-            <a href="https://www.facebook.com/davidalejoms" target="_blank">
-              <i className="text-5xl text-slate-50 fa-brands fa-facebook"></i>
+            <a href="https://www.facebook.com/davidalejoms" target="_blank" rel="noreferrer">
+              <i className="text-4xl text-slate-50 fa-brands fa-facebook  hover:text-cyan-500 "></i>
             </a>
-            <a href="https://www.instagram.com/davidalejoms/" target="_blank">
-              <i className="text-5xl text-slate-50 fa-brands fa-instagram"></i>
+            <a href="https://www.instagram.com/davidalejoms/" target="_blank" rel="noreferrer">
+              <i className="text-4xl text-slate-50 fa-brands fa-instagram  hover:text-cyan-500 "></i>
             </a>
-            <a href="https://twitter.com/davidalejoms" target="_blank">
-              <i className="text-5xl text-slate-50 fa-brands fa-twitter"></i>
+            <a href="https://twitter.com/davidalejoms" target="_blank" rel="noreferrer">
+              <i className="text-4xl text-slate-50 fa-brands fa-twitter  hover:text-cyan-500 "></i>
             </a>
-            <a href="https://www.youtube.com/channel/UC5S3jOutLdbAeDTT67XWB4g " target="_blank">
-              <i className="text-5xl text-slate-50 fa-brands fa-youtube"></i>
+            <a href="https://www.youtube.com/channel/UC5S3jOutLdbAeDTT67XWB4g " target="_blank" rel="noreferrer">
+              <i className="text-4xl text-slate-50 fa-brands fa-youtube  hover:text-cyan-500 "></i>
             </a>
-            <a href="https://github.com/davidalejoms" target="_blank">
-              <i className="text-5xl text-slate-50 fa-brands fa-github"></i>
+            <a href="https://github.com/davidalejoms" target="_blank" rel="noreferrer">
+              <i className="text-4xl text-slate-50 fa-brands fa-github  hover:text-cyan-500 "></i>
             </a>
           </div>
         </div>

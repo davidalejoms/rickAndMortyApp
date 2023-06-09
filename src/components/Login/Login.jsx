@@ -65,7 +65,7 @@ export default function Login(props) {
           <div className="flex flex-col  justify-center mt-4  relative">
             <label className=" text-slate-50 mb-1.5" htmlFor="password">
               Email: ( davidalejoms@gmail.com )
-              <i class="fa-solid fa-copy text-white inline-block text-lg pl-2" onClick={clipboard} id="clipUser"></i>
+              <i className="fa-solid fa-copy text-white inline-block text-lg pl-2" onClick={clipboard} id="clipUser"></i>
             </label>
             <p className={errors.user && "text-sm block text-center text-red-900 my-1 w-[90%]  mx-auto    right-1  bg-red-300 rounded "}>
               {errors.user}
@@ -82,7 +82,7 @@ export default function Login(props) {
           <div className="flex flex-col  justify-center mt-6 relative">
             <label className="  text-slate-50 mb-1.5" htmlFor="Nombre">
               Contraseña:( PASShenry2 )
-              <i class="fa-solid fa-copy text-white inline-block text-lg pl-2" onClick={clipboard} id="clipPassword"></i>
+              <i className="fa-solid fa-copy text-white inline-block text-lg pl-2" onClick={clipboard} id="clipPassword"></i>
             </label>
             <p
               className={errors.password && "text-sm block text-center text-red-900 my-1 w-[90%]  mx-auto    right-1  bg-red-300 rounded "}
