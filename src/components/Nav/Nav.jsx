@@ -81,10 +81,14 @@ export default function Nav(props) {
           </Link>
         )}
 
-        <div className={!permissionStatus.random ? "hidden" : "block"}>
+        <div className={`${!permissionStatus.random ? "hidden" : "block"} ${props.characters.length === 0 && "animate-bounce"}`}>
           <AddRandom AddRandom={props.AddRandom} label="Random" />
         </div>
-        <div className={!permissionStatus.random12 ? "hidden" : "block"}>
+        <div
+          className={`${!permissionStatus.random12 ? "hidden" : "block"} ${
+            props.characters.length > 0 && props.characters.length < 12 && "animate-bounce"
+          }`}
+        >
           <AddRandom AddRandom={props.AddRandom} preload={props.preload} label="+12 Randomly" />
         </div>
         <div className={!permissionStatus.clear ? "hidden" : "block"}>

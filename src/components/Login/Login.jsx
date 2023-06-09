@@ -38,6 +38,21 @@ export default function Login(props) {
   const viewerHandler = (e) => {
     setShowPassword(!showPassword)
   }
+  const clipboard = (e) => {
+    e.target.id === "clipUser" && ClipperHandler("davidalejoms@gmail.com")
+    e.target.id === "clipPassword" && ClipperHandler("PASSHenry2")
+  }
+
+  const ClipperHandler = (textToSend) => {
+    navigator.clipboard
+      .writeText(textToSend)
+      .then(() => {
+        alert(textToSend + " copiado!")
+      })
+      .catch((err) => {
+        console.error("Error al copiar al portapapeles:", err)
+      })
+  }
 
   return (
     <div className="pt-6">
@@ -50,6 +65,7 @@ export default function Login(props) {
           <div className="flex flex-col  justify-center mt-4  relative">
             <label className=" text-slate-50 mb-1.5" htmlFor="password">
               Email: ( davidalejoms@gmail.com )
+              <i class="fa-solid fa-copy text-white inline-block text-lg pl-2" onClick={clipboard} id="clipUser"></i>
             </label>
             <p className={errors.user && "text-sm block text-center text-red-900 my-1 w-[90%]  mx-auto    right-1  bg-red-300 rounded "}>
               {errors.user}
@@ -66,6 +82,7 @@ export default function Login(props) {
           <div className="flex flex-col  justify-center mt-6 relative">
             <label className="  text-slate-50 mb-1.5" htmlFor="Nombre">
               Contraseña:( PASShenry2 )
+              <i class="fa-solid fa-copy text-white inline-block text-lg pl-2" onClick={clipboard} id="clipPassword"></i>
             </label>
             <p
               className={errors.password && "text-sm block text-center text-red-900 my-1 w-[90%]  mx-auto    right-1  bg-red-300 rounded "}
