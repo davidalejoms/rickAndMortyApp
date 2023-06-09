@@ -40,7 +40,7 @@ export default function Login(props) {
   }
   const clipboard = (e) => {
     e.target.id === "clipUser" && ClipperHandler("davidalejoms@gmail.com")
-    e.target.id === "clipPassword" && ClipperHandler("PASSHenry2")
+    e.target.id === "clipPassword" && ClipperHandler("PASShenry2")
   }
 
   const ClipperHandler = (textToSend) => {
