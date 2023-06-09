@@ -65,17 +65,17 @@ export default function Nav(props) {
         <h1 className="    text-3xl text-white">Rick And Morty App</h1>
       </div>
 
-      <div className=" mx-auto flex items-center justify-center  flex-wrap gap-6 text-white py-6 " id="navBar">
-        <Link to="/home">
+      <div className=" mx-auto flex items-center justify-center  flex-wrap gap-6 text-white py-6   " id="navBar">
+        <Link to="/home" className={`${location === "/home" && "bg-slate-500  rounded-full px-2 py-1"}`}>
           <i className="fa-solid fa-home mr-1"></i> App
         </Link>
-        <Link to="/about" element="About">
+        <Link to="/about" element="About" className={`${location === "/about" && "bg-slate-500  rounded-full px-2 py-1"}`}>
           <i className="fa-solid fa-user mr-1"></i>
           About
         </Link>
 
         {myFavorites.length !== 0 && (
-          <Link to="/favorites" element="Favorites">
+          <Link to="/favorites" element="Favorites" className={`${location === "/favorites" && "bg-slate-500  rounded-full px-2 py-1"}`}>
             <i className="fa-solid fa-star mr-1"></i>
             My favs
           </Link>
