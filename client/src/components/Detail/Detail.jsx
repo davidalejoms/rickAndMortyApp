@@ -24,7 +24,7 @@ export default function Detail() {
   const [character, setCharacter] = useState([])
   const { id } = useParams()
   useEffect(() => {
-    axios.get(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+    axios.get(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
       if (data.name) {
         // return setCharacter(data)
         setCharacter({
@@ -51,7 +51,6 @@ export default function Detail() {
   // ====================================================================================return
   return (
     <div className="pt-20">
-  
       <div
         key={character.id}
         className="mx-auto  p-5 max-w-4xl bg-gray-900 m-2 rounded-3xl grid grid-cols-2 bg-opacity-95 shadow drop-shadow-2xl shadow-green-400 "
@@ -62,7 +61,10 @@ export default function Detail() {
           <Status vivito={character.status} />
         </div>
         <div className="relative p-4" id="DescriptionContainer">
-        <Link to="/home" className="text-white underline text-right block font-bold"> ⇇ Go Back lo list</Link>
+          <Link to="/home" className="text-white underline text-right block font-bold">
+            {" "}
+            ⇇ Go Back lo list
+          </Link>
           <h2 className="text-stone-50 text-xl text-center mt-5 leading-none my-5 ">
             Name <br />
             <strong className=" text-3xl text-stone-50">{character.name}</strong> <br />
