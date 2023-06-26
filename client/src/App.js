@@ -12,7 +12,7 @@ import NotFound from "./components/NotFound/NotFound"
 import Login from "./components/Login/Login"
 import Favorites from "./components/Favorites/Favorites"
 import { useDispatch } from "react-redux"
-import { removeFav } from "./redux/actions"
+import { removeAll } from "./redux/actions"
 
 function App() {
   const [characters, setCharacters] = React.useState([])
@@ -78,17 +78,27 @@ meter 6 para ir mirando inicio
 
   const navigate = useNavigate()
   const [access, setAccess] = useState(false)
-  const EMAIL = "davidalejoms@gmail.com"
-  const PASSWORD = "PASShenry2"
+  // const EMAIL = "davidalejoms@gmail.com"
+  // const PASSWORD = "PASShenry2"
 
+  // function login(userData) {
+  //   if (userData.password === PASSWORD && userData.user === EMAIL) {
+  //     setAccess(true)
+  //     navigate("/home")
+  //     localStorage.setItem("session", true) //!=========================================================
+  //   } else {
+  //     alert("revise sus credenciales, Acceso denegado")
+  //   }
+  // }
   function login(userData) {
-    if (userData.password === PASSWORD && userData.user === EMAIL) {
-      setAccess(true)
-      navigate("/home")
-      localStorage.setItem("session", true) //!=========================================================
-    } else {
-      alert("revise sus credenciales, Acceso denegado")
-    }
+    const { user, password } = userData
+    const URL = "http://localhost:3001/rickandmorty/login/"
+    axios(URL + `?user=${user}&password=${password}`).then(({ data }) => {
+      const { loginAccess } = data
+      setAccess(loginAccess)
+
+      access && navigate("/home")
+    })
   }
 
   const logout = () => {
@@ -104,7 +114,7 @@ meter 6 para ir mirando inicio
   const dispatcher = useDispatch()
   const clear = () => {
     setCharacters([])
-    dispatcher(removeFav("all"))
+    dispatcher(removeAll())
   }
 
   return (

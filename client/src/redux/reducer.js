@@ -1,4 +1,4 @@
-import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "../redux/actions"
+import { ADD_FAV, FILTER, ORDER, REMOVE_FAV, REMOVE_ALL } from "../redux/actions"
 const initialState = {
   myFavorites: [],
   allCharacters: [],
@@ -7,7 +7,9 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAV:
-      return { ...state, allCharacters: [...state.allCharacters, action.payload], myFavorites: [...state.allCharacters, action.payload] }
+      return { ...state, myFavorites: action.payload, allCharacters: action.payload }
+    // case ADD_FAV:
+    //   return { ...state, allCharacters: [...state.allCharacters, action.payload], myFavorites: [...state.allCharacters, action.payload] }
     case FILTER:
       if (action.payload === "Default") {
         return { ...state, myFavorites: state.allCharacters }
@@ -41,17 +43,13 @@ const rootReducer = (state = initialState, action) => {
         })
       }
       return { ...state, myFavorites: orderedChars }
-    case REMOVE_FAV:
-      if (action.payload !== "all") {
-        return {
-          ...state,
-          myFavorites: state.myFavorites.filter((char) => char.id !== parseInt(action.payload)),
-          allCharacters: state.myFavorites.filter((char) => char.id !== parseInt(action.payload)),
-        }
-      } else if (action.payload === "all") {
-        return initialState
-      }
-      break
+    case "REMOVE_FAV":
+      return { ...state, myFavorites: action.payload, allCharacters: action.payload }
+
+    case "REMOVE_ALL":
+      console.log(action.payload)
+      return initialState
+
     default:
       return { ...state }
   }
