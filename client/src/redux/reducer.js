@@ -43,11 +43,10 @@ const rootReducer = (state = initialState, action) => {
         })
       }
       return { ...state, myFavorites: orderedChars }
-    case "REMOVE_FAV":
+    case REMOVE_FAV:
       return { ...state, myFavorites: action.payload, allCharacters: action.payload }
 
-    case "REMOVE_ALL":
-      console.log(action.payload)
+    case REMOVE_ALL:
       return initialState
 
     default:

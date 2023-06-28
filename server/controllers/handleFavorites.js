@@ -1,11 +1,9 @@
 let myFavorites = []
 
 const postFav = (req, res) => {
-  console.log("entrado a post fav")
+  // console.log("entrado a post fav")
   const { id } = req.params
-  if (id) {
-    console.log("==================hay id y esta entrando a post fav============")
-  }
+
   Object.keys(req.body).length > 0 && myFavorites.push(req.body)
   res.status(200).json(myFavorites)
 }
