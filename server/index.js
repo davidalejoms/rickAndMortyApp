@@ -14,7 +14,7 @@ server.use((req, res, next) => {
 server.use(express.json())
 server.use("/rickandmorty", mainRouter)
 
-conn.sync().then(() => {
+conn.sync({ force: false }).then(() => {
   server.listen(PORT, () => {
     console.log("Server raised in port: " + PORT)
   })

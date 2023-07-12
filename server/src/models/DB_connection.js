@@ -1,7 +1,5 @@
 require("dotenv").config()
 
-require("dotenv").config()
-
 const { Sequelize } = require("sequelize")
 const FavoriteModel = require("./Favorite")
 const UserModel = require("./User")
@@ -21,15 +19,22 @@ FavoriteModel(sequelize)
 UserModel(sequelize)
 //
 
+const { User, Favorite } = sequelize.models
+User.belongsToMany(Favorite, { through: "UserFavorites", onDelete: "CASCADE" })
+Favorite.belongsToMany(User, { through: "UserFavorites", onDelete: "CASCADE" })
+
 // Ejercicio 06
 // ¡Relaciona tus modelos aquí abajo!
-const { User, Favorite } = sequelize.models
+// const { UserFavorites } = sequelize.models
 
-User.belongsToMany(Favorite, { through: "UserFavorites" })
-Favorite.belongsToMany(User, { through: "UserFavorites" })
-
+// const finder = async () => {
+//   const findOne = await User.findOne({ where: { email: "davidalejoms@gmail.com" } })
+//   console.log("=========================================valor del findOne:", findOne)
+// }
+// finder()
 module.exports = {
   User,
   Favorite,
+  // UserFavorites,
   conn: sequelize,
 }
