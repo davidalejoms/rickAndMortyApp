@@ -1,8 +1,8 @@
 const express = require("express")
-const PORT = 3001
+const PORT = "3001"
 const mainRouter = require("./routes/")
 const server = express()
-
+const { conn } = require("./src/models/DB_connection")
 server.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Credentials", "true")
@@ -14,9 +14,14 @@ server.use((req, res, next) => {
 server.use(express.json())
 server.use("/rickandmorty", mainRouter)
 
-server.listen(PORT, () => {
-  console.log("Server raised in port: " + PORT)
+conn.sync().then(() => {
+  server.listen(PORT, () => {
+    console.log("Server raised in port: " + PORT)
+  })
 })
+/* .catch((error) => {
+    throw Error("error de index:" + error.message)
+  }) */
 
 module.exports = server
 
