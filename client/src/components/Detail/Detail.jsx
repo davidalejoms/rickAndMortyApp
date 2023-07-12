@@ -1,6 +1,7 @@
 import axios from "axios"
+import env from "react-dotenv"
 import React, { useState, useEffect } from "react"
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 /* tukis================================================== */
 const Status = (props) => {
   if (props.vivito === "Dead")
@@ -23,8 +24,9 @@ const Status = (props) => {
 export default function Detail() {
   const [character, setCharacter] = useState([])
   const { id } = useParams()
+
   useEffect(() => {
-    axios.get(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
+    axios.get(`${env.URLRICK}/rickandmorty/character/${id}`).then(({ data }) => {
       if (data.name) {
         // return setCharacter(data)
         setCharacter({
@@ -40,13 +42,13 @@ export default function Detail() {
         window.alert("No hay personajes con ese ID")
       }
     })
-    return setCharacter({})
-  }, [id])
+    // return setCharacter({})
+  }, [])
 
-  const navigate = useNavigate()
-  const goHome = () => {
-    navigate("/home")
-  }
+  // const navigate = useNavigate()
+  // const goHome = () => {
+  //   navigate("/home")
+  // }
 
   // ====================================================================================return
   return (

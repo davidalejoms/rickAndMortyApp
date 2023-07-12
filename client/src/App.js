@@ -1,3 +1,4 @@
+import env from "react-dotenv"
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 
@@ -35,7 +36,7 @@ function App() {
     }
     setWarning("")
     try {
-      await axios.get(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
+      await axios.get(`${env.URLRICK}/rickandmorty/character/${id}`).then(({ data }) => {
         if (data.name) {
           setCharacters((oldChars) => [data, ...oldChars]) // ESTADO LOCAL
         } else {
@@ -89,7 +90,7 @@ meter 6 para ir mirando inicio
   // }
   async function login(userData) {
     const { user, password } = userData
-    const URL = "http://localhost:3001/rickandmorty/login/"
+    const URL = `${env.URLRICK}/rickandmorty/login/`
     try {
       await axios(URL + `?user=${user}&password=${password}`).then(({ data }) => {
         const { loginAccess } = data
