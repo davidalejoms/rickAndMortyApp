@@ -18,6 +18,7 @@ import { removeAll } from "./redux/actions"
 function App() {
   const [characters, setCharacters] = React.useState([])
   const [warning, setWarning] = React.useState("")
+  const [loadershadow, setloadershadow] = React.useState(false)
 
   const onSearch = async (id) => {
     if (id.length === 0) {
@@ -79,12 +80,17 @@ meter 6 para ir mirando inicio
 
   const login = async (userData) => {
     const { user, password } = userData
-    const URL = `${env.URLRICK}/rickandmorty/login/`
+    const URL = `${env.URLRICK}/rickandmorty/loginpost/`
     try {
-      const dataLogin = await axios(URL + `?user=${user}&password=${password}`)
+      setloadershadow(true)
+      const dataLogin = await axios.post(URL, {
+        user: user,
+        password: password,
+      })
       const { loginAccess } = dataLogin.data
       if (loginAccess) {
         setAcceso(loginAccess)
+        setloadershadow(false)
         navigate("home")
       } else {
         alert("credenciales invalidas")
@@ -112,7 +118,7 @@ meter 6 para ir mirando inicio
   }
 
   return (
-    <div className="App">
+    <div className={`App ${loadershadow && "bg-red"} `}>
       {/* <Wither /> */}
       <Nav
         addWithId={onSearch}

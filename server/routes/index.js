@@ -17,7 +17,7 @@ mainRouter.get("/", (req, res) => {
   console.log("/")
 })
 
-mainRouter.get("/login", login)
+mainRouter.post("/loginpost", login)
 mainRouter.post("/login", postUser)
 mainRouter.get("/character/:id", getCharById)
 mainRouter.delete("/fav/:id", deleteFav)
