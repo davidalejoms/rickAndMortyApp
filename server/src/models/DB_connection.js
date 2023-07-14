@@ -8,9 +8,18 @@ const UserModel = require("./User")
 // A la instancia de Sequelize le falta la URL de conexión. ¡Agrégala!
 // Recuerda pasarle la información de tu archivo '.env'.
 const { USERNAME, PASSWORD, HOST, PORT, DB } = process.env
-const URL = `postgres://${USERNAME}:${PASSWORD}@${HOST}:${PORT}/${DB}`
+// const URL = `postgres://${USERNAME}:${PASSWORD}@${HOST}:${PORT}/${DB}`
+const URL = "postgres://default:iy5TpOoRLq0K@ep-nameless-leaf-900270.us-east-1.postgres.vercel-storage.com:5432/verceldb"
 
-const sequelize = new Sequelize(URL, { logging: false, native: false })
+const sequelize = new Sequelize(URL, {
+  logging: false,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // Solo si tu certificado SSL no es de confianza
+    },
+  },
+})
 
 // EJERCICIO 05
 // Debajo de este comentario puedes ejecutar la función de los modelos.
@@ -22,6 +31,7 @@ UserModel(sequelize)
 const { User, Favorite } = sequelize.models
 User.belongsToMany(Favorite, { through: "UserFavorites", onDelete: "CASCADE" })
 Favorite.belongsToMany(User, { through: "UserFavorites", onDelete: "CASCADE" })
+//User.create({ email: "davidalejoms@gmail.com", password: "PASShenry2" })
 
 // Ejercicio 06
 // ¡Relaciona tus modelos aquí abajo!

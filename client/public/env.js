@@ -45,7 +45,7 @@ window.env = {
   "npm_config_cache": "/Users/davidmejia/.npm",
   "LOGNAME": "davidmejia",
   "npm_lifecycle_script": "react-dotenv && react-scripts start",
-  "VSCODE_GIT_IPC_HANDLE": "/var/folders/nm/dymhvxfx3lb_kdbvnq4t0m2m0000gn/T/vscode-git-e99b3201c8.sock",
+  "VSCODE_GIT_IPC_HANDLE": "/var/folders/nm/dymhvxfx3lb_kdbvnq4t0m2m0000gn/T/vscode-git-a1778de405.sock",
   "npm_config_user_agent": "npm/9.5.1 node/v18.16.0 darwin arm64 workspaces/false",
   "HOMEBREW_CELLAR": "/opt/homebrew/Cellar",
   "INFOPATH": "/opt/homebrew/share/info:",

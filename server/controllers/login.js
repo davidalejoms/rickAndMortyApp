@@ -3,7 +3,6 @@ const { User } = require("../src/models/DB_connection")
 
 const login = async (req, res) => {
   const { user, password } = req.query
-  console.log("{ user, password }:", { user, password })
   try {
     if (!user || !password) {
       return res.status(400).json({ rejected: "faltan datos para login" })
