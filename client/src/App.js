@@ -75,44 +75,35 @@ meter 6 para ir mirando inicio
   const location = useLocation()
 
   const navigate = useNavigate()
-  const [access, setAccess] = useState(false)
-  // const EMAIL = "davidalejoms@gmail.com"
-  // const PASSWORD = "PASShenry2"
+  const [acceso, setAcceso] = useState(false)
 
-  // function login(userData) {
-  //   if (userData.password === PASSWORD && userData.user === EMAIL) {
-  //     setAccess(true)
-  //     navigate("/home")
-  //     localStorage.setItem("session", true) //!=========================================================
-  //   } else {
-  //     alert("revise sus credenciales, Acceso denegado")
-  //   }
-  // }
-  async function login(userData) {
+  const login = async (userData) => {
     const { user, password } = userData
     const URL = `${env.URLRICK}/rickandmorty/login/`
     try {
-      await axios(URL + `?user=${user}&password=${password}`).then(({ data }) => {
-        const { loginAccess } = data
-        setAccess(loginAccess)
-
-        access && navigate("/home")
-      })
+      const dataLogin = await axios(URL + `?user=${user}&password=${password}`)
+      const { loginAccess } = dataLogin.data
+      if (loginAccess) {
+        setAcceso(loginAccess)
+        navigate("home")
+      } else {
+        alert("credenciales invalidas")
+      }
     } catch (error) {
       console.error("error de login:", error.message)
       throw new Error(error.message)
     }
   }
 
+  // este useEffect saca al usuario si es el estado local es false aparte de eso no hace nada
+  useEffect(() => {
+    if (acceso === false) navigate("/")
+  }, [acceso, navigate])
+
   const logout = () => {
-    setAccess(false)
-    localStorage.setItem("session", false) //!=========================================================
+    setAcceso(false)
     navigate("/")
   }
-
-  useEffect(() => {
-    !access && navigate("/")
-  }, [access, navigate])
 
   const dispatcher = useDispatch()
   const clear = () => {
