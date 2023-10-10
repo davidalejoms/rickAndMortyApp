@@ -13,12 +13,12 @@ const URL = DBSTRING
 
 const sequelize = new Sequelize(URL, {
   logging: false,
-  // dialectOptions: {
-  //   ssl: {
-  //     require: true,
-  //     rejectUnauthorized: false, // Solo si tu certificado SSL no es de confianza
-  //   },
-  // },
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // Solo si tu certificado SSL no es de confianza
+    },
+  },
 })
 
 // EJERCICIO 05
