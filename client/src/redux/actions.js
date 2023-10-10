@@ -1,3 +1,5 @@
+import env from "react-dotenv"
+
 import axios from "axios"
 export const ADD_FAV = "ADD_FAV"
 export const REMOVE_FAV = "REMOVE_FAV"
@@ -6,7 +8,7 @@ export const FILTER = "FILTER"
 export const ORDER = "ORDER "
 
 export const addFav = (character) => {
-  const endpoint = "http://localhost:3001/rickandmorty/fav"
+  const endpoint = `${env.URLRICK}/rickandmorty/fav`
   return async (dispatch) => {
     try {
       await axios.post(endpoint, character).then(({ data }) => {
@@ -25,7 +27,7 @@ export const addFav = (character) => {
 //   return { type: ADD_FAV, payload: char }
 // }
 export const removeFav = (id) => {
-  const endpoint = `http://localhost:3001/rickandmorty/fav/${id}`
+  const endpoint = `${env.URLRICK}/rickandmorty/fav/${id}`
   return async (dispatch) => {
     try {
       await axios.delete(endpoint).then(({ data }) => {
@@ -40,7 +42,7 @@ export const removeFav = (id) => {
   }
 }
 export const removeAll = () => {
-  const endpoint = `http://localhost:3001/rickandmorty/clear`
+  const endpoint = `${env.URLRICK}/rickandmorty/clear`
   return (dispatch) => {
     axios.delete(endpoint).then(({ data }) => {
       return dispatch({
