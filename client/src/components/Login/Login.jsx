@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import logo from "./login-randm.png"
 import validate from "./validations"
+import Swal from "sweetalert2"
+
 //import { useNavigate } from "react-router-dom"
 // eslint-disable-next-line
 
@@ -60,12 +62,26 @@ export default function Login(props) {
         className="  max-w-screen-sm sm:max-w-sm mx-auto bg-gray-900 bg-opacity-70
     rounded-xl border-[2px] border-gray-50"
       >
-        <img className=" w-[80%] mx-auto py-4 " src={logo} alt="login" />
-        <form className=" p-4 flex flex-col mt-10  border-[2px] border-gray-50  rounded-xl text-left " onSubmit={handleSubmit}>
+        <img
+          className=" w-[80%] mx-auto py-4 "
+          src={logo}
+          alt="login"
+        />
+        <form
+          className=" p-4 flex flex-col mt-10  border-[2px] border-gray-50  rounded-xl text-left "
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-col  justify-center mt-4  relative">
-            <label className=" text-slate-50 mb-1.5" htmlFor="password">
+            <label
+              className=" text-slate-50 mb-1.5"
+              htmlFor="password"
+            >
               Email: ( davidalejoms@gmail.com )
-              <i className="fa-solid fa-copy text-white inline-block text-lg pl-2" onClick={clipboard} id="clipUser"></i>
+              <i
+                className="fa-solid fa-copy text-white inline-block text-lg pl-2"
+                onClick={clipboard}
+                id="clipUser"
+              ></i>
             </label>
             <p className={errors.user && "text-sm block text-center text-red-900 my-1 w-[90%]  mx-auto    right-1  bg-red-300 rounded "}>
               {errors.user}
@@ -80,9 +96,16 @@ export default function Login(props) {
           </div>
 
           <div className="flex flex-col  justify-center mt-6 relative">
-            <label className="  text-slate-50 mb-1.5" htmlFor="Nombre">
+            <label
+              className="  text-slate-50 mb-1.5"
+              htmlFor="Nombre"
+            >
               Contraseña:( PASShenry2 )
-              <i className="fa-solid fa-copy text-white inline-block text-lg pl-2" onClick={clipboard} id="clipPassword"></i>
+              <i
+                className="fa-solid fa-copy text-white inline-block text-lg pl-2"
+                onClick={clipboard}
+                id="clipPassword"
+              ></i>
             </label>
             <p
               className={errors.password && "text-sm block text-center text-red-900 my-1 w-[90%]  mx-auto    right-1  bg-red-300 rounded "}

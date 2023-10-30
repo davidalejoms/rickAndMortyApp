@@ -14,7 +14,7 @@ import Login from "./components/Login/Login"
 import Favorites from "./components/Favorites/Favorites"
 import { useDispatch } from "react-redux"
 import { removeAll } from "./redux/actions"
-
+import Swal from "sweetalert2"
 function App() {
   const [characters, setCharacters] = React.useState([])
   const [warning, setWarning] = React.useState("")
@@ -83,6 +83,14 @@ meter 6 para ir mirando inicio
     const URL = `${env.URLRICK}/rickandmorty/loginpost/`
     try {
       setloadershadow(true)
+      Swal.fire({
+        title: "Cargando...",
+        html: "Espere un momento por favor",
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading()
+        },
+      })
       const dataLogin = await axios.post(URL, {
         user: user,
         password: password,
@@ -98,6 +106,8 @@ meter 6 para ir mirando inicio
     } catch (error) {
       console.error("error de login:", error.message)
       throw new Error(error.message)
+    } finally {
+      Swal.close()
     }
   }
 
@@ -118,27 +128,52 @@ meter 6 para ir mirando inicio
   }
 
   return (
-    <div className={`App ${loadershadow && "bg-red"} `}>
-      {/* <Wither /> */}
-      <Nav
-        addWithId={onSearch}
-        AddRandom={Random}
-        location={location.pathname}
-        logout={logout}
-        preload={preload}
-        clear={clear}
-        characters={characters}
-      />
-      <AlertBar warning={warning} />
-      <Routes>
-        <Route path="/" element={<Login login={login} />} />
-        <Route path="/home" element={<Cards onClose={onClose} characters={characters} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/detail/:id" element={<Detail />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+    <>
+      <div className={`App ${loadershadow && "bg-red"} `}>
+        {/* <Wither /> */}
+        <Nav
+          addWithId={onSearch}
+          AddRandom={Random}
+          location={location.pathname}
+          logout={logout}
+          preload={preload}
+          clear={clear}
+          characters={characters}
+        />
+        <AlertBar warning={warning} />
+        <Routes>
+          <Route
+            path="/"
+            element={<Login login={login} />}
+          />
+          <Route
+            path="/home"
+            element={
+              <Cards
+                onClose={onClose}
+                characters={characters}
+              />
+            }
+          />
+          <Route
+            path="/about"
+            element={<About />}
+          />
+          <Route
+            path="/favorites"
+            element={<Favorites />}
+          />
+          <Route
+            path="/detail/:id"
+            element={<Detail />}
+          />
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
+        </Routes>
+      </div>
+    </>
   )
 }
 
